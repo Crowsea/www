@@ -174,7 +174,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">42</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
 
   </li>
       
@@ -187,7 +187,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">34</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">38</span></a>
 
   </li>
       
@@ -200,7 +200,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
 
   </li>
       
@@ -262,6 +262,112 @@
           <div id="content" class="content">
             
   <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2018/04/03/visual-studio-skill/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="起源|NaturalWill">
+      <meta itemprop="description" content="随便写写">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WeiJie Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/04/03/visual-studio-skill/" class="post-title-link" itemprop="url">Visual Studio 技巧</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-03 09:57:52" itemprop="dateCreated datePublished" datetime="2018-04-03T09:57:52+08:00">2018-04-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Skills/" itemprop="url" rel="index"><span itemprop="name">Skills</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="重新安装-NuGet-包"><a href="#重新安装-NuGet-包" class="headerlink" title="重新安装 NuGet 包"></a>重新安装 NuGet 包</h2><p>有时候打开项目，发现 NuGet 包全部丢失了，点击<code>还原 NuGet 包</code>也没有任何作用。</p>
+<p>这时我们可以点击<code>工具</code>-&gt;<code>NuGet 包管理器</code>-&gt;<code>程序包管理控制台</code>打开控制台，在里面输入以下命令重新安装解决方案的 NuGet 包。</p>
+<pre><code>Update-Package -Reinstall
+</code></pre><p>也可以只重新安装某一项目的 NuGet 包。</p>
+<pre><code>Update-Package -ProjectName &quot;DemoProject&quot; -Reinstall
+</code></pre><h2 id="DXERR-LIB"><a href="#DXERR-LIB" class="headerlink" title="DXERR.LIB"></a>DXERR.LIB</h2><p><strong>VS 2015 / 2017:</strong>The VS 2015 / 2017 C Runtime is not compatible with the<code>DXERR.LIB</code>that ships in the legacy DirectX SDK. You will get link errors trying to use it. You can use this module to replace DXERR LIB but will have to rebuild the code that uses it. You can try linking with<code>legacy_stdio_definitions.lib</code>instead, but ideally you’d remove this dependency on the legacy DirectX SDK.</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
         <article itemscope itemtype="http://schema.org/Article">
   
   
@@ -446,7 +552,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
+                <time title="修改时间：2020-01-11 21:54:53" itemprop="dateModified" datetime="2020-01-11T21:54:53+08:00">2020-01-11</time>
               </span>
             
           
@@ -478,7 +584,9 @@
           <p>作者：马歇尔·卢森堡</p>
 <p>旨在帮助我们用不批评、不指责的方式去与人交谈，化解冲突，增进感情。</p>
 <p>最佳应用于较亲密的关系。</p>
+<blockquote>
 <p>我们最容易伤害的是我们最亲近的人。</p>
+</blockquote>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -893,7 +1001,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
+                <time title="修改时间：2020-01-11 21:46:54" itemprop="dateModified" datetime="2020-01-11T21:46:54+08:00">2020-01-11</time>
               </span>
             
           
@@ -911,13 +1019,6 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a></span>
 
                 
                 
@@ -1005,7 +1106,7 @@ allow-guest=false
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
+                <time title="修改时间：2020-01-11 21:46:35" itemprop="dateModified" datetime="2020-01-11T21:46:35+08:00">2020-01-11</time>
               </span>
             
           
@@ -1022,14 +1123,7 @@ allow-guest=false
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Linux/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Service/" itemprop="url" rel="index"><span itemprop="name">Service</span></a></span>
 
                 
                 
@@ -1248,7 +1342,7 @@ allow-guest=false
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
+                <time title="修改时间：2020-01-11 21:49:39" itemprop="dateModified" datetime="2020-01-11T21:49:39+08:00">2020-01-11</time>
               </span>
             
           
@@ -1265,14 +1359,7 @@ allow-guest=false
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Linux/部署/" itemprop="url" rel="index"><span itemprop="name">部署</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Service/" itemprop="url" rel="index"><span itemprop="name">Service</span></a></span>
 
                 
                 
@@ -1313,141 +1400,6 @@ git checkout $(git describe --abbrev=0 --tags)
             </div>
           
           <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/11/05/install-archlinux-on-wsl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="起源|NaturalWill">
-      <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WeiJie Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/11/05/install-archlinux-on-wsl/" class="post-title-link" itemprop="url">在 Windows 10 2017秋季更新后 WSL 替换 Ubuntu 为 Archlinux</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2017-11-05 01:20:47" itemprop="dateCreated datePublished" datetime="2017-11-05T01:20:47+08:00">2017-11-05</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Windows/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>从Windows商店安装Ubuntu。</p>
-<p>从开始菜单打开 Ubuntu。</p>
-<p>通过 cmd 切换默认用户为 root:</p>
-<pre><code>&gt; ubuntu config --default-user root
-</code></pre><p>重新打开 Ubuntu。</p>
-<p>从 <a href="https://www.archlinux.org/download/" rel="external nofollow noopener noreferrer" target="_blank">Arch Linux Downloads</a>或镜像站 下载一个 archlinux-bootstrap.tar.gz, 并解压：</p>
-<pre><code># wget https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2018.05.01/archlinux-bootstrap-2018.05.01-x86_64.tar.gz
-# tar -zxvf archlinux-bootstrap-2018.05.01-x86_64.tar.gz
-</code></pre><p>修改 <code>~/root.x86_64/etc/pacman.d/mirrorlist</code>, 选择需要的服务器，取消注释。</p>
-<p>让WSL自动生成 /etc/resolv.conf:</p>
-<pre><code># echo &quot;# This file was automatically generated by WSL. To stop automatic generation of this file, remove this line.&quot; &gt; ~/root.x86_64/etc/resolv.conf
-</code></pre><p>退出所有 Ubuntu Shell, 在资源管理器中打开 <code>%localappdata%\Packages</code>, 并找到 <code>CanonicalGroupLimited.UbuntuonWindows_</code> 开头的文件夹，删除 <code>%localappdata%\Packages\CanonicalGroupLimited.UbuntuonWindows_*\LocalState\rootfs</code> 中的 bin, etc, lib, lib64, sbin, srv, usr 和 var 等 8 个文件夹。</p>
-<p>然后，<strong>移动</strong> <code>rootfs\root\root.x86_64</code> 中的 bin, etc, lib, lib64, sbin, srv, usr 和 var 到 <code>rootfs</code> 中。</p>
-<p><del>在另一个 Arch Linux 系统中构建 <a href="https://aur.archlinux.org/packages/fakeroot-tcp/" rel="external nofollow noopener noreferrer" target="_blank">fakeroot-tcp<sup>AUR</sup></a> 和 <a href="https://aur.archlinux.org/packages/glibc-wsl/" rel="external nofollow noopener noreferrer" target="_blank">glibc-wsl<sup>AUR</sup></a> , 然后复制到你的 Windows 电脑。 （通过 <code>--nocheck</code> 选项可以在 <code>makepkg</code> 编译 glibc-wsl 时跳过一个非常耗时的测试套件） <em>glibc-wsl</em> 用于解决 <a href="https://github.com/Microsoft/BashOnWindows/issues/1878" rel="external nofollow noopener noreferrer" target="_blank">这个bug</a>。 而直到 System V IPC 被完全实现之前 <em>fakeroot-tcp</em> 都是必需的。 (<a href="https://github.com/Microsoft/BashOnWindows/issues/1016" rel="external nofollow noopener noreferrer" target="_blank">详情</a>)</del></p>
-<p>在另一个 Arch Linux 系统中构建 <a href="https://aur.archlinux.org/packages/fakeroot-tcp/" rel="external nofollow noopener noreferrer" target="_blank">fakeroot-tcp<sup>AUR</sup></a> , 然后复制到你的 Windows 电脑。直到 System V IPC 被完全实现之前 <em>fakeroot-tcp</em> 都是必需的。 (<a href="https://github.com/Microsoft/BashOnWindows/issues/1016" rel="external nofollow noopener noreferrer" target="_blank">详情</a>)</p>
-<p>重新打开 Bash 以安装 Archlinux:</p>
-<pre><code># pacman-key --init
-# pacman-key --populate archlinux
-# pacman -Syy
-# pacman -U fakeroot-tcp-1.22-2-x86_64.pkg.tar.xz
-# pacman -Syu base base-devel
-</code></pre><p>注意：在安装 base 和 base-devel 时，需要取消 <del>glibc 和</del> fakeroot 。</p>
-<p>最后，增加一个普通账号。</p>
-<pre><code># useradd -m -G wheel -s /bin/bash username
-# passwd root
-# passwd username
-</code></pre><p>并通过 cmd 设置该账号为默认账号：</p>
-<pre><code>&gt; ubuntu config --default-user username
-</code></pre>
         
       
     </div>
@@ -1516,7 +1468,7 @@ git checkout $(git describe --abbrev=0 --tags)
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1529,7 +1481,7 @@ git checkout $(git describe --abbrev=0 --tags)
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1542,7 +1494,7 @@ git checkout $(git describe --abbrev=0 --tags)
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

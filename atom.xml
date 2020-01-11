@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://naturalwill.github.io/"/>
-  <updated>2020-01-11T08:47:31.369Z</updated>
+  <updated>2020-01-11T13:59:11.317Z</updated>
   <id>https://naturalwill.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ArchLinux 出现错误 Invalid or Corrupted package (PGP signature) 的解决方法</title>
+    <link href="https://naturalwill.github.io/2020/01/11/ArchLinux-error-invalid-or-corrupte-package/"/>
+    <id>https://naturalwill.github.io/2020/01/11/ArchLinux-error-invalid-or-corrupte-package/</id>
+    <published>2020-01-11T06:33:00.000Z</published>
+    <updated>2020-01-11T13:59:11.317Z</updated>
+    
+    <content type="html"><![CDATA[<p>升级系统时，有时会出现这个错误信息:</p><pre><code>error: vim: signature from &quot;Levente Polyak (anthraxx) &lt;levente@leventepolyak.net&gt;&quot; is unknown trust:: File /var/cache/pacman/pkg/vim-8.2.0100-1-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).Do you want to delete it? [Y/n]error: failed to commit transaction (invalid or corrupted package)Errors occurred, no packages were upgraded.</code></pre><p>可以尝试以下步骤：</p><ol><li>更新 archlinux-keyring<br> pacman -Sy archlinux-keyring</li><li>更新所有密钥<br> pacman-key –refresh-keys</li></ol><h2 id="pacman-key-相关命令"><a href="#pacman-key-相关命令" class="headerlink" title="pacman-key 相关命令"></a>pacman-key 相关命令</h2><ol><li><p>确保正确初始化密匙环<br> pacman-key –init</p></li><li><p>从 <code>/usr/share/pacman/keyring</code> 中重新加载默认密钥<br> pacman-key –populate</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;升级系统时，有时会出现这个错误信息:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;error: vim: signature from &amp;quot;Levente Polyak (anthraxx) &amp;lt;levente@leventepolyak.net&amp;gt;&amp;quot; is u
+      
+    
+    </summary>
+    
+      <category term="计算机" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+      <category term="Linux" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/"/>
+    
+    
+      <category term="Archlinux" scheme="https://naturalwill.github.io/tags/Archlinux/"/>
+    
+  </entry>
   
   <entry>
     <title>如何下载 Chrome 独立安装包</title>
@@ -115,7 +143,7 @@ IconResource=C:\Windows\system32\SHELL32.dll,7
     <link href="https://naturalwill.github.io/2018/05/15/install-kurento-server-in-ubuntu-16-04/"/>
     <id>https://naturalwill.github.io/2018/05/15/install-kurento-server-in-ubuntu-16-04/</id>
     <published>2018-05-15T07:54:07.000Z</published>
-    <updated>2020-01-11T08:47:31.295Z</updated>
+    <updated>2020-01-11T13:49:22.965Z</updated>
     
     <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">REPO=<span class="string">"xenial"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"deb http://ubuntu.kurento.org <span class="variable">$REPO</span> kms6"</span> | sudo tee /etc/apt/sources.list.d/kurento.list</span><br><span class="line">wget http://ubuntu.kurento.org/kurento.gpg.key -O - | sudo apt-key add -</span><br><span class="line">apt update</span><br><span class="line">useradd -U -m kurento</span><br><span class="line">apt install -y kurento-media-server-6.0</span><br><span class="line">systemctl start kurento-media-server-6.0</span><br><span class="line">systemctl <span class="built_in">enable</span> kurento-media-server-6.0</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="添加-H-264-支持"><a href="#添加-H-264-支持" class="headerlink" title="添加 H.264 支持"></a>添加 H.264 支持</h2><p>安装插件 <code>openh264-gst-plugins-bad-1.5</code></p><pre><code>apt install -y openh264-gst-plugins-bad-1.5</code></pre><p>重启 kurento server</p><pre><code>systemctl restart kurento-media-server-6.0</code></pre><p>若要只支持 H.264 则需要打开 <code>/etc/kurento/modules/kurento/SdpEndpoint.conf.json</code> ，注释掉 videoCodecs 中的 “VP8/90000” 。修改之后的文件像这样的。</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ... omit ...</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">"videoCodecs"</span> : [</span><br><span class="line">    <span class="comment">// &#123;</span></span><br><span class="line">    <span class="comment">//   "name" : "VP8/90000"</span></span><br><span class="line">    <span class="comment">// &#125;,</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span> : <span class="string">"H264/90000"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>保存并重启 Kurento Server 。</p>]]></content>
     
@@ -127,9 +155,7 @@ IconResource=C:\Windows\system32\SHELL32.dll,7
     
       <category term="计算机" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-      <category term="Linux" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/"/>
-    
-      <category term="部署" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/%E9%83%A8%E7%BD%B2/"/>
+      <category term="Service" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Service/"/>
     
     
       <category term="Kurento" scheme="https://naturalwill.github.io/tags/Kurento/"/>
@@ -314,16 +340,18 @@ IconResource=C:\Windows\system32\SHELL32.dll,7
     <link href="https://naturalwill.github.io/2018/02/28/Reading-Note-of-Nonviolent-Communication/"/>
     <id>https://naturalwill.github.io/2018/02/28/Reading-Note-of-Nonviolent-Communication/</id>
     <published>2018-02-28T14:24:56.000Z</published>
-    <updated>2020-01-11T08:47:31.225Z</updated>
+    <updated>2020-01-11T13:54:53.489Z</updated>
     
-    <content type="html"><![CDATA[<p>作者：马歇尔·卢森堡</p><p>旨在帮助我们用不批评、不指责的方式去与人交谈，化解冲突，增进感情。</p><p>最佳应用于较亲密的关系。</p><p>我们最容易伤害的是我们最亲近的人。</p><a id="more"></a><p><img src="/images/Nonviolent-Communication-Notes.png" alt="Nonviolent Communication"></p><h2 id="四个沟通技巧"><a href="#四个沟通技巧" class="headerlink" title="四个沟通技巧"></a>四个沟通技巧</h2><p>让自己不发起暴力沟通</p><ol><li>观察事实和表达事实</li><li>体会和表达感受</li><li>发现需要</li><li>提出明确的请求</li></ol><h3 id="观察事实和表达事实"><a href="#观察事实和表达事实" class="headerlink" title="观察事实和表达事实"></a>观察事实和表达事实</h3><p>区分事实和看法。</p><p>主观词：我认为、我觉得、你总是…………</p><h3 id="体会和表达感受"><a href="#体会和表达感受" class="headerlink" title="体会和表达感受"></a>体会和表达感受</h3><p>感受由心而发，感性，容易唤起引发对方的同理心。看法是理性思考产生，”贴标签”容易引起对方本能的抗拒和反驳。</p><p>区分想法、评价和感受</p><blockquote><p>我觉得我弹得不好</p></blockquote><p>这是一种评价。</p><blockquote><p>作为吉他手，我感到很难过、失落</p></blockquote><p>这是在表达感受。</p><ol><li>用来表达我们的需要得到满足时的感受<br>兴奋、甜蜜、精力充沛、兴高采烈、喜悦、自信、开心、高兴、幸福、愉快、满足、欣慰、陶醉等。</li><li>用来表达我们的需要没有得到满足时的感受<br>害怕、担心、焦虑、忧虑、着急、紧张不安丶心神不宁丶悲伤、绝望、气腰丶灰心丶烦恼、愤怒、生气、厌烦等。</li><li>表达想法而非感受<br>披抛弃、被羞辱、被虐待、被打扰、被拒绝、不受重视、被欺负、无人理睬、没人赏识、被利用等。</li></ol><h3 id="发现需要"><a href="#发现需要" class="headerlink" title="发现需要"></a>发现需要</h3><p>内在的需要，如：被关心、尊重、认可。</p><blockquote><p>人们常常认为自己的负面情绪是由别人造成的。</p></blockquote><p>人的感受是由自己的需要造成的，不是由对方的行为造成的。如：你对他人的期待。</p><h3 id="提出明确的请求"><a href="#提出明确的请求" class="headerlink" title="提出明确的请求"></a>提出明确的请求</h3><p>一旦知道自己需要什么，直接具体的表达自己的需求。（避免抽象，要具有可操作性）</p><h2 id="应对暴力沟通"><a href="#应对暴力沟通" class="headerlink" title="应对暴力沟通"></a>应对暴力沟通</h2><h3 id="应对别人的暴力语言"><a href="#应对别人的暴力语言" class="headerlink" title="应对别人的暴力语言"></a>应对别人的暴力语言</h3><ol><li><p>平静，事实，原因，对方的行为，自己的想法、感受、需要，提出请求。</p></li><li><p>平静，事实，原因，倾听，分析其感受、需要，引导对方说出明确的需求。</p></li></ol><h3 id="应对自己的暴力语言"><a href="#应对自己的暴力语言" class="headerlink" title="应对自己的暴力语言"></a>应对自己的暴力语言</h3><blockquote><p>如果你犯了错，也要理解、宽恕你自己，尽快调整自己，把注意力放在目标上，而不是一味的自责，因为那只会让你禁锢在原地，只有反思之后的行动，才有意义。</p></blockquote><p>我应该/不得不这样做 -&gt; 写下来，理解自己行为的动机，化被动为主动 -&gt; 我选择这样做，是因为什么。</p>]]></content>
+    <content type="html"><![CDATA[<p>作者：马歇尔·卢森堡</p><p>旨在帮助我们用不批评、不指责的方式去与人交谈，化解冲突，增进感情。</p><p>最佳应用于较亲密的关系。</p><blockquote><p>我们最容易伤害的是我们最亲近的人。</p></blockquote><a id="more"></a><p><img src="/images/Nonviolent-Communication-Notes.png" alt="Nonviolent Communication"></p><h2 id="四个沟通技巧"><a href="#四个沟通技巧" class="headerlink" title="四个沟通技巧"></a>四个沟通技巧</h2><p>让自己不发起暴力沟通</p><ol><li>观察事实和表达事实</li><li>体会和表达感受</li><li>发现需要</li><li>提出明确的请求</li></ol><h3 id="观察事实和表达事实"><a href="#观察事实和表达事实" class="headerlink" title="观察事实和表达事实"></a>观察事实和表达事实</h3><p>区分事实和看法。</p><p>主观词：我认为、我觉得、你总是…………</p><h3 id="体会和表达感受"><a href="#体会和表达感受" class="headerlink" title="体会和表达感受"></a>体会和表达感受</h3><p>感受由心而发，感性，容易唤起引发对方的同理心。看法是理性思考产生，”贴标签”容易引起对方本能的抗拒和反驳。</p><p>区分想法、评价和感受</p><blockquote><p>我觉得我弹得不好</p></blockquote><p>这是一种评价。</p><blockquote><p>作为吉他手，我感到很难过、失落</p></blockquote><p>这是在表达感受。</p><ol><li>用来表达我们的需要得到满足时的感受<br>兴奋、甜蜜、精力充沛、兴高采烈、喜悦、自信、开心、高兴、幸福、愉快、满足、欣慰、陶醉等。</li><li>用来表达我们的需要没有得到满足时的感受<br>害怕、担心、焦虑、忧虑、着急、紧张不安丶心神不宁丶悲伤、绝望、气腰丶灰心丶烦恼、愤怒、生气、厌烦等。</li><li>表达想法而非感受<br>披抛弃、被羞辱、被虐待、被打扰、被拒绝、不受重视、被欺负、无人理睬、没人赏识、被利用等。</li></ol><h3 id="发现需要"><a href="#发现需要" class="headerlink" title="发现需要"></a>发现需要</h3><p>内在的需要，如：被关心、尊重、认可。</p><blockquote><p>人们常常认为自己的负面情绪是由别人造成的。</p></blockquote><p>人的感受是由自己的需要造成的，不是由对方的行为造成的。如：你对他人的期待。</p><h3 id="提出明确的请求"><a href="#提出明确的请求" class="headerlink" title="提出明确的请求"></a>提出明确的请求</h3><p>一旦知道自己需要什么，直接具体的表达自己的需求。（避免抽象，要具有可操作性）</p><h2 id="应对暴力沟通"><a href="#应对暴力沟通" class="headerlink" title="应对暴力沟通"></a>应对暴力沟通</h2><h3 id="应对别人的暴力语言"><a href="#应对别人的暴力语言" class="headerlink" title="应对别人的暴力语言"></a>应对别人的暴力语言</h3><ol><li><p>平静，事实，原因，对方的行为，自己的想法、感受、需要，提出请求。</p></li><li><p>平静，事实，原因，倾听，分析其感受、需要，引导对方说出明确的需求。</p></li></ol><h3 id="应对自己的暴力语言"><a href="#应对自己的暴力语言" class="headerlink" title="应对自己的暴力语言"></a>应对自己的暴力语言</h3><blockquote><p>如果你犯了错，也要理解、宽恕你自己，尽快调整自己，把注意力放在目标上，而不是一味的自责，因为那只会让你禁锢在原地，只有反思之后的行动，才有意义。</p></blockquote><p>我应该/不得不这样做 -&gt; 写下来，理解自己行为的动机，化被动为主动 -&gt; 我选择这样做，是因为什么。</p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;作者：马歇尔·卢森堡&lt;/p&gt;
 &lt;p&gt;旨在帮助我们用不批评、不指责的方式去与人交谈，化解冲突，增进感情。&lt;/p&gt;
 &lt;p&gt;最佳应用于较亲密的关系。&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;我们最容易伤害的是我们最亲近的人。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -422,7 +450,7 @@ IconResource=C:\Windows\system32\SHELL32.dll,7
     <link href="https://naturalwill.github.io/2018/01/22/disable-guest-in-ubuntu-16-04/"/>
     <id>https://naturalwill.github.io/2018/01/22/disable-guest-in-ubuntu-16-04/</id>
     <published>2018-01-22T08:39:13.000Z</published>
-    <updated>2020-01-11T08:47:31.206Z</updated>
+    <updated>2020-01-11T13:46:54.282Z</updated>
     
     <content type="html"><![CDATA[<p>禁用Ubuntu 16.04 的访客模式，只需要修改配置文件 <code>/etc/lightdm/lightdm.conf.d/50-guest-wrapper.conf</code> 。</p><pre><code>sudo nano /etc/lightdm/lightdm.conf.d/50-guest-wrapper.conf</code></pre><p>在文件中添加以下内容即可。</p><pre><code>[Seat:*]allow-guest=false</code></pre>]]></content>
     
@@ -440,8 +468,6 @@ IconResource=C:\Windows\system32\SHELL32.dll,7
     
       <category term="Linux" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/"/>
     
-      <category term="Notes" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/Notes/"/>
-    
     
       <category term="Notes" scheme="https://naturalwill.github.io/tags/Notes/"/>
     
@@ -454,7 +480,7 @@ IconResource=C:\Windows\system32\SHELL32.dll,7
     <link href="https://naturalwill.github.io/2017/12/29/keep-the-Host-header-via-nginx-proxy-pass/"/>
     <id>https://naturalwill.github.io/2017/12/29/keep-the-Host-header-via-nginx-proxy-pass/</id>
     <published>2017-12-29T09:03:56.000Z</published>
-    <updated>2020-01-11T08:47:31.189Z</updated>
+    <updated>2020-01-11T13:46:35.351Z</updated>
     
     <content type="html"><![CDATA[<p>如果直接通过设置 proxy_pass 转发，会发现原来的域名会丢失，取代出现的是目标地址的 IP 。</p><pre><code>server {    listen 80;    location / {        proxy_pass http://127.0.0.1:4356;    }}</code></pre><p>解决方法是设置 proxy_set_header . 具体如下：</p><pre><code>server {    listen 80;    # this is the key !!!    proxy_set_header Host $host:$server_port;    location / {        proxy_pass http://127.0.0.1:4356;    }}</code></pre>]]></content>
     
@@ -474,9 +500,7 @@ IconResource=C:\Windows\system32\SHELL32.dll,7
     
       <category term="计算机" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-      <category term="Linux" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/"/>
-    
-      <category term="Notes" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/Notes/"/>
+      <category term="Service" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Service/"/>
     
     
       <category term="Nginx" scheme="https://naturalwill.github.io/tags/Nginx/"/>
@@ -517,7 +541,7 @@ IconResource=C:\Windows\system32\SHELL32.dll,7
     <link href="https://naturalwill.github.io/2017/11/10/add-rtmp-module-to-nginx-full-with-apt/"/>
     <id>https://naturalwill.github.io/2017/11/10/add-rtmp-module-to-nginx-full-with-apt/</id>
     <published>2017-11-10T08:07:07.000Z</published>
-    <updated>2020-01-11T08:47:31.166Z</updated>
+    <updated>2020-01-11T13:49:39.844Z</updated>
     
     <content type="html"><![CDATA[<p>通过 apt 安装的 Nginx 可以通过系统服务的方式进行启动，相当便捷，但 Nginx 目前还不可以后期动态添加模块的，所以只能通过编译安装了。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>更新，及安装必要工具。</p><pre><code>sudo apt-get updatesudo apt-get install -y dpkg-dev</code></pre><p>创建一个干净的目录，用于后面的编译工作。</p><pre><code>mkdir build &amp;&amp; cd build</code></pre><p>获取 nginx 源码。执行以下代码后，会在当前目录将 nginx 的源码下载至 <em>nginx-*</em> , * 是版本号。</p><pre><code>apt-get source nginx</code></pre><p>获取 nginx-rtmp-module 源码。通过 git 获取，或者<a href="https://github.com/arut/nginx-rtmp-module/archive/master.zip" rel="external nofollow noopener noreferrer" target="_blank">直接下载</a>。</p><pre><code>git clone https://github.com/arut/nginx-rtmp-module.gitcd nginx-rtmp-modulegit checkout $(git describe --abbrev=0 --tags)</code></pre><a id="more"></a><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>进入  <em>nginx-*</em> 目录，修改 <code>debian/rules</code>, 找到 <code>full_configure_flags</code> 或 <code>config.status.full</code> 这一段，在最后增加一行 <code>--add-module=*</code>，其中 = 后是 nginx-rtmp-module 的路径，比如我的 nginx-rtmp-module 跟 nginx 一样都在 build 目录下，是这样的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--add-module=$(CURDIR)/../nginx-rtmp-module</span><br></pre></td></tr></table></figure><p>修改后的段落像是这样的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">full_configure_flags := \</span><br><span class="line">            $(common_configure_flags) \</span><br><span class="line">            --with-http_addition_module \</span><br><span class="line">            --with-http_dav_module \</span><br><span class="line">            --with-http_geoip_module \</span><br><span class="line">            --with-http_gunzip_module \</span><br><span class="line">            --with-http_gzip_static_module \</span><br><span class="line">            --with-http_image_filter_module \</span><br><span class="line">                        --with-http_v2_module \</span><br><span class="line">            --with-http_sub_module \</span><br><span class="line">            --with-http_xslt_module \</span><br><span class="line">            --with-stream \</span><br><span class="line">            --with-stream_ssl_module \</span><br><span class="line">            --with-mail \</span><br><span class="line">            --with-mail_ssl_module \</span><br><span class="line">            --with-threads \</span><br><span class="line">            --add-module=$(MODULESDIR)/nginx-auth-pam \</span><br><span class="line">            --add-module=$(MODULESDIR)/nginx-dav-ext-module \</span><br><span class="line">            --add-module=$(MODULESDIR)/nginx-echo \</span><br><span class="line">            --add-module=$(MODULESDIR)/nginx-upstream-fair \</span><br><span class="line">            --add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \</span><br><span class="line">            --add-module=$(CURDIR)/../nginx-rtmp-module</span><br></pre></td></tr></table></figure><p>或是这样的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">config.status.full: config.env.full</span><br><span class="line">        cd $(BUILDDIR_full) &amp;&amp; ./configure  \</span><br><span class="line">            $(common_configure_flags) \</span><br><span class="line">            --with-http_addition_module \</span><br><span class="line">            --with-http_dav_module \</span><br><span class="line">            --with-http_geoip_module \</span><br><span class="line">            --with-http_gzip_static_module \</span><br><span class="line">            --with-http_image_filter_module \</span><br><span class="line">            --with-http_spdy_module \</span><br><span class="line">            --with-http_sub_module \</span><br><span class="line">            --with-http_xslt_module \</span><br><span class="line">            --with-mail \</span><br><span class="line">            --with-mail_ssl_module \</span><br><span class="line">            --add-module=$(MODULESDIR)/nginx-auth-pam \</span><br><span class="line">            --add-module=$(MODULESDIR)/nginx-dav-ext-module \</span><br><span class="line">            --add-module=$(MODULESDIR)/nginx-echo \</span><br><span class="line">            --add-module=$(MODULESDIR)/nginx-upstream-fair \</span><br><span class="line">            --add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \</span><br><span class="line">            --add-module=$(CURDIR)/../nginx-rtmp-module \</span><br><span class="line">            &gt;$@</span><br><span class="line">        touch $@</span><br></pre></td></tr></table></figure><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre><code>sudo apt-get build-dep nginx</code></pre><h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><pre><code>dpkg-buildpackage -b</code></pre><p>之后，会在 nginx 的上级目录，也就是 build 目录下，生成一堆 deb 软件包。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>接下来就可以直接安装了。</p><pre><code>sudo dpkg -i nginx-common_*.deb nginx-full_*.deb</code></pre><h2 id="后期工作"><a href="#后期工作" class="headerlink" title="后期工作"></a>后期工作</h2><p>在运行 <code>apt upgrade</code> 的时候，忽略 nginx-common 与 nginx-full 。</p><pre><code>sudo apt-mark hold nginx-common nginx-full</code></pre>]]></content>
     
@@ -541,9 +565,7 @@ git checkout $(git describe --abbrev=0 --tags)
     
       <category term="计算机" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-      <category term="Linux" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/"/>
-    
-      <category term="部署" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/%E9%83%A8%E7%BD%B2/"/>
+      <category term="Service" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Service/"/>
     
     
       <category term="Linux" scheme="https://naturalwill.github.io/tags/Linux/"/>
@@ -553,41 +575,6 @@ git checkout $(git describe --abbrev=0 --tags)
       <category term="流媒体" scheme="https://naturalwill.github.io/tags/%E6%B5%81%E5%AA%92%E4%BD%93/"/>
     
       <category term="RTMP" scheme="https://naturalwill.github.io/tags/RTMP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在 Windows 10 2017秋季更新后 WSL 替换 Ubuntu 为 Archlinux</title>
-    <link href="https://naturalwill.github.io/2017/11/05/install-archlinux-on-wsl/"/>
-    <id>https://naturalwill.github.io/2017/11/05/install-archlinux-on-wsl/</id>
-    <published>2017-11-04T17:20:47.000Z</published>
-    <updated>2020-01-11T08:47:31.161Z</updated>
-    
-    <content type="html"><![CDATA[<p>从Windows商店安装Ubuntu。</p><p>从开始菜单打开 Ubuntu。</p><p>通过 cmd 切换默认用户为 root:</p><pre><code>&gt; ubuntu config --default-user root</code></pre><p>重新打开 Ubuntu。</p><p>从 <a href="https://www.archlinux.org/download/" rel="external nofollow noopener noreferrer" target="_blank">Arch Linux Downloads</a>或镜像站 下载一个 archlinux-bootstrap.tar.gz, 并解压：</p><pre><code># wget https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2018.05.01/archlinux-bootstrap-2018.05.01-x86_64.tar.gz# tar -zxvf archlinux-bootstrap-2018.05.01-x86_64.tar.gz</code></pre><p>修改 <code>~/root.x86_64/etc/pacman.d/mirrorlist</code>, 选择需要的服务器，取消注释。</p><p>让WSL自动生成 /etc/resolv.conf:</p><pre><code># echo &quot;# This file was automatically generated by WSL. To stop automatic generation of this file, remove this line.&quot; &gt; ~/root.x86_64/etc/resolv.conf</code></pre><p>退出所有 Ubuntu Shell, 在资源管理器中打开 <code>%localappdata%\Packages</code>, 并找到 <code>CanonicalGroupLimited.UbuntuonWindows_</code> 开头的文件夹，删除 <code>%localappdata%\Packages\CanonicalGroupLimited.UbuntuonWindows_*\LocalState\rootfs</code> 中的 bin, etc, lib, lib64, sbin, srv, usr 和 var 等 8 个文件夹。</p><p>然后，<strong>移动</strong> <code>rootfs\root\root.x86_64</code> 中的 bin, etc, lib, lib64, sbin, srv, usr 和 var 到 <code>rootfs</code> 中。</p><p><del>在另一个 Arch Linux 系统中构建 <a href="https://aur.archlinux.org/packages/fakeroot-tcp/" rel="external nofollow noopener noreferrer" target="_blank">fakeroot-tcp<sup>AUR</sup></a> 和 <a href="https://aur.archlinux.org/packages/glibc-wsl/" rel="external nofollow noopener noreferrer" target="_blank">glibc-wsl<sup>AUR</sup></a> , 然后复制到你的 Windows 电脑。 （通过 <code>--nocheck</code> 选项可以在 <code>makepkg</code> 编译 glibc-wsl 时跳过一个非常耗时的测试套件） <em>glibc-wsl</em> 用于解决 <a href="https://github.com/Microsoft/BashOnWindows/issues/1878" rel="external nofollow noopener noreferrer" target="_blank">这个bug</a>。 而直到 System V IPC 被完全实现之前 <em>fakeroot-tcp</em> 都是必需的。 (<a href="https://github.com/Microsoft/BashOnWindows/issues/1016" rel="external nofollow noopener noreferrer" target="_blank">详情</a>)</del></p><p>在另一个 Arch Linux 系统中构建 <a href="https://aur.archlinux.org/packages/fakeroot-tcp/" rel="external nofollow noopener noreferrer" target="_blank">fakeroot-tcp<sup>AUR</sup></a> , 然后复制到你的 Windows 电脑。直到 System V IPC 被完全实现之前 <em>fakeroot-tcp</em> 都是必需的。 (<a href="https://github.com/Microsoft/BashOnWindows/issues/1016" rel="external nofollow noopener noreferrer" target="_blank">详情</a>)</p><p>重新打开 Bash 以安装 Archlinux:</p><pre><code># pacman-key --init# pacman-key --populate archlinux# pacman -Syy# pacman -U fakeroot-tcp-1.22-2-x86_64.pkg.tar.xz# pacman -Syu base base-devel</code></pre><p>注意：在安装 base 和 base-devel 时，需要取消 <del>glibc 和</del> fakeroot 。</p><p>最后，增加一个普通账号。</p><pre><code># useradd -m -G wheel -s /bin/bash username# passwd root# passwd username</code></pre><p>并通过 cmd 设置该账号为默认账号：</p><pre><code>&gt; ubuntu config --default-user username</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;从Windows商店安装Ubuntu。&lt;/p&gt;
-&lt;p&gt;从开始菜单打开 Ubuntu。&lt;/p&gt;
-&lt;p&gt;通过 cmd 切换默认用户为 root:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; ubuntu config --default-user root
-&lt;/code&gt;&lt;/pre
-      
-    
-    </summary>
-    
-      <category term="计算机" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-      <category term="Windows" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Windows/"/>
-    
-      <category term="WSL" scheme="https://naturalwill.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Windows/WSL/"/>
-    
-    
-      <category term="WSL" scheme="https://naturalwill.github.io/tags/WSL/"/>
-    
-      <category term="Archlinux" scheme="https://naturalwill.github.io/tags/Archlinux/"/>
     
   </entry>
   
