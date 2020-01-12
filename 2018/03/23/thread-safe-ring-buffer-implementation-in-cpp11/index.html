@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/favicon.svg?v=7.4.0" color="#222">
-  <link rel="alternate" href="/atom.xml" title="WeiJie Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-corner-indicator.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://naturalwill.github.io').hostname,
     root: '/',
     scheme: 'Gemini',
-    version: '7.4.0',
+    version: '7.7.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     bookmark: {"enable":true,"color":"#222","save":"auto"},
@@ -40,6 +35,7 @@
     mediumzoom: false,
     lazyload: false,
     pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -49,13 +45,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
@@ -65,12 +55,13 @@
 <meta property="og:url" content="https://naturalwill.github.io/2018/03/23/thread-safe-ring-buffer-implementation-in-cpp11/index.html">
 <meta property="og:site_name" content="WeiJie Blog">
 <meta property="og:description" content="环形缓冲区（Ring Buffer），是一种用于表示一个固定尺寸、头尾相连的缓冲区的数据结构，适合缓存数据流。 环形缓冲区的一个有用特性是：当一个数据元素被用掉后，其余数据元素不需要移动其存储位置。换句话说，环形缓冲区适合实现先进先出缓冲区。     由于计算机内存是线性地址空间，因此环形缓冲区需要特别的设计才可以从逻辑上实现。一般的，环形缓冲区需要4个指针：  在内存中实际开始位置； 在内存中实">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-11T08:47:31.229Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-03-23T09:44:26.000Z">
+<meta property="article:modified_time" content="2020-01-11T08:47:31.229Z">
+<meta property="article:author" content="起源|NaturalWill">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ 11 实现线程安全的环形缓冲区">
-<meta name="twitter:description" content="环形缓冲区（Ring Buffer），是一种用于表示一个固定尺寸、头尾相连的缓冲区的数据结构，适合缓存数据流。 环形缓冲区的一个有用特性是：当一个数据元素被用掉后，其余数据元素不需要移动其存储位置。换句话说，环形缓冲区适合实现先进先出缓冲区。     由于计算机内存是线性地址空间，因此环形缓冲区需要特别的设计才可以从逻辑上实现。一般的，环形缓冲区需要4个指针：  在内存中实际开始位置； 在内存中实">
-  <link rel="canonical" href="https://naturalwill.github.io/2018/03/23/thread-safe-ring-buffer-implementation-in-cpp11/">
+
+<link rel="canonical" href="https://naturalwill.github.io/2018/03/23/thread-safe-ring-buffer-implementation-in-cpp11/">
 
 
 <script id="page-configurations">
@@ -78,16 +69,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
   <title>C++ 11 实现线程安全的环形缓冲区 | WeiJie Blog</title>
   
-
-
 
 
 
@@ -106,7 +93,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -120,11 +106,11 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -140,11 +126,11 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
 
@@ -152,77 +138,35 @@
 <nav class="site-nav">
   
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
-      
-    
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
-      
-    
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">38</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">36</span></a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
-      
-    
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">14</span></a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-links">
-      
-    
-      
-    
+        <li class="menu-item menu-item-archives">
 
-    <a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i> <br>链接</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">43</span></a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>链接</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
       </li>
-    
   </ul>
 
 </nav>
@@ -250,40 +194,38 @@
 
     
   <div class="reading-progress-bar"></div>
-  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <a href="https://github.com/naturalwill" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content">
             
 
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block post">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2018/03/23/thread-safe-ring-buffer-implementation-in-cpp11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="WeiJie Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">C++ 11 实现线程安全的环形缓冲区
-
-          
+        <h2 class="post-title" itemprop="name headline">
+          C++ 11 实现线程安全的环形缓冲区
         </h2>
 
         <div class="post-meta">
@@ -293,16 +235,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2018-03-23 17:44:26" itemprop="dateCreated datePublished" datetime="2018-03-23T17:44:26+08:00">2018-03-23</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -310,35 +244,29 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C/C++</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -351,9 +279,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>环形缓冲区（<a href="https://zh.wikipedia.org/wiki/%E7%92%B0%E5%BD%A2%E7%B7%A9%E8%A1%9D%E5%8D%80" rel="external nofollow noopener noreferrer" target="_blank">Ring Buffer</a>），是一种用于表示一个固定尺寸、头尾相连的缓冲区的数据结构，适合缓存数据流。</p>
+        <p>环形缓冲区（<a href="https://zh.wikipedia.org/wiki/%E7%92%B0%E5%BD%A2%E7%B7%A9%E8%A1%9D%E5%8D%80" target="_blank" rel="external nofollow noopener noreferrer">Ring Buffer</a>），是一种用于表示一个固定尺寸、头尾相连的缓冲区的数据结构，适合缓存数据流。</p>
 <p>环形缓冲区的一个有用特性是：当一个数据元素被用掉后，其余数据元素不需要移动其存储位置。换句话说，环形缓冲区适合实现先进先出缓冲区。</p>
-<p><link href="/style/ringbuffer.css" rel="stylesheet" type="text/css"></p>
+<link href="/style/ringbuffer.css" rel="stylesheet" type="text/css">
 <div style="text-align: center"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
 
 <blockquote>
@@ -376,32 +304,32 @@
 </ul>
 </blockquote>
 <a id="more"></a>
+
 <p>以下是使用数据计数策略用于检测缓冲区是满、或是空，使用自旋锁保证线程安全的高效环形缓冲区。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* ring_buffer_s.h</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"spin_mutex.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* \brief 线程安全的环形缓冲区</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ring_buffer_s</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">ring_buffer_s</span><span class="params">(<span class="keyword">size_t</span> capacity)</span></span>;</span><br><span class="line">    ring_buffer_s(ring_buffer_s &amp;&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    ring_buffer_s&amp; <span class="keyword">operator</span>=(ring_buffer_s&amp;&amp; other) = <span class="keyword">delete</span>;</span><br><span class="line"></span><br><span class="line">    ring_buffer_s(<span class="keyword">const</span> ring_buffer_s &amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    ring_buffer_s&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> ring_buffer_s&amp; other) = <span class="keyword">delete</span>;</span><br><span class="line"></span><br><span class="line">    ~ring_buffer_s();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * \brief 获取缓冲区已用大小</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">size_t</span> size() <span class="keyword">const</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * \brief 获取缓冲区容量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">size_t</span> capacity() <span class="keyword">const</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * \brief 写入数据</span></span><br><span class="line"><span class="comment">     * \param data 要写入的数据</span></span><br><span class="line"><span class="comment">     * \param bytes 要写入的数据的大小</span></span><br><span class="line"><span class="comment">     * \return 最终写入的数据的大小</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">size_t</span> write(<span class="keyword">const</span> <span class="keyword">void</span> *data, <span class="keyword">size_t</span> bytes);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * \brief 读取数据</span></span><br><span class="line"><span class="comment">     * \param data 用来存放读取数据的buffer</span></span><br><span class="line"><span class="comment">     * \param bytes 要读取的数据大小</span></span><br><span class="line"><span class="comment">     * \return 最终获取到的数据的大小</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">size_t</span> read(<span class="keyword">void</span> *data, <span class="keyword">size_t</span> bytes);</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">size_t</span> front_, rear_, size_, capacity_;</span><br><span class="line">    <span class="keyword">uint8_t</span> *data_;</span><br><span class="line">    <span class="keyword">mutable</span> spin_mutex mut_;</span><br><span class="line">    <span class="keyword">mutable</span> <span class="built_in">std</span>::mutex mut_read_;</span><br><span class="line">    <span class="keyword">mutable</span> <span class="built_in">std</span>::mutex mut_write_;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* ring_buffer_s.cpp</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ring_buffer_s.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> ring_buffer_s::ring_buffer_s(<span class="keyword">const</span> <span class="keyword">size_t</span> capacity)</span><br><span class="line">    : front_(<span class="number">0</span>)</span><br><span class="line">    , rear_(<span class="number">0</span>)</span><br><span class="line">    , size_(<span class="number">0</span>)</span><br><span class="line">    , capacity_(capacity)</span><br><span class="line">&#123;</span><br><span class="line">    data_ = <span class="keyword">new</span> <span class="keyword">uint8_t</span>[capacity];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> ring_buffer_s::~ring_buffer_s()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span>[] data_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">size_t</span> ring_buffer_s::size() <span class="keyword">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> size_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">size_t</span> ring_buffer_s::capacity() <span class="keyword">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> capacity_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">size_t</span> ring_buffer_s::write(<span class="keyword">const</span> <span class="keyword">void</span> *data, <span class="keyword">const</span> <span class="keyword">size_t</span> bytes)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (bytes == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过互斥量保证任意时刻，至多只有一个线程在写数据。</span></span><br><span class="line">    <span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt;lk_write(mut_write_);</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> capacity = capacity_;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> bytes_to_write = <span class="built_in">std</span>::min(bytes, capacity - size_);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (bytes_to_write == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一次性写入</span></span><br><span class="line">    <span class="keyword">if</span> (bytes_to_write &lt;= capacity - rear_)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memcpy</span>(data_ + rear_, data, bytes_to_write);</span><br><span class="line">        rear_ += bytes_to_write;</span><br><span class="line">        <span class="keyword">if</span> (rear_ == capacity) rear_ = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 分两步进行</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> size_1 = capacity - rear_;</span><br><span class="line">        <span class="built_in">memcpy</span>(data_ + rear_, data, size_1);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> size_2 = bytes_to_write - size_1;</span><br><span class="line">        <span class="built_in">memcpy</span>(data_, <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">uint8_t</span>*&gt;(data) + size_1, size_2);</span><br><span class="line">        rear_ = size_2;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过自旋锁保证任意时刻，至多只有一个线程在改变 size_ .</span></span><br><span class="line">    <span class="built_in">std</span>::lock_guard&lt;spin_mutex&gt;lk(mut_);</span><br><span class="line">    size_ += bytes_to_write;</span><br><span class="line">    <span class="keyword">return</span> bytes_to_write;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">size_t</span> ring_buffer_s::read(<span class="keyword">void</span> *data, <span class="keyword">const</span> <span class="keyword">size_t</span> bytes)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (bytes == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过互斥量保证任意时刻，至多只有一个线程在读数据。</span></span><br><span class="line">    <span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt;lk_read(mut_read_);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> capacity = capacity_;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> bytes_to_read = <span class="built_in">std</span>::min(bytes, size_);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (bytes_to_read == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一次性读取</span></span><br><span class="line">    <span class="keyword">if</span> (bytes_to_read &lt;= capacity - front_)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memcpy</span>(data, data_ + front_, bytes_to_read);</span><br><span class="line">        front_ += bytes_to_read;</span><br><span class="line">        <span class="keyword">if</span> (front_ == capacity) front_ = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 分两步进行</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> size_1 = capacity - front_;</span><br><span class="line">        <span class="built_in">memcpy</span>(data, data_ + front_, size_1);</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> size_2 = bytes_to_read - size_1;</span><br><span class="line">        <span class="built_in">memcpy</span>(<span class="keyword">static_cast</span>&lt;<span class="keyword">uint8_t</span>*&gt;(data) + size_1, data_, size_2);</span><br><span class="line">        front_ = size_2;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过自旋锁保证任意时刻，至多只有一个线程在改变 size_ .</span></span><br><span class="line">    <span class="built_in">std</span>::lock_guard&lt;spin_mutex&gt;lk(mut_);</span><br><span class="line">    size_ -= bytes_to_read;</span><br><span class="line">    <span class="keyword">return</span> bytes_to_read;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* spin_mutex.h</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;atomic&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">spin_mutex</span> &#123;</span></span><br><span class="line">    <span class="built_in">std</span>::atomic_flag flag_ = ATOMIC_FLAG_INIT;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    spin_mutex() = <span class="keyword">default</span>;</span><br><span class="line">    ~spin_mutex() = <span class="keyword">default</span>;</span><br><span class="line">    spin_mutex(<span class="keyword">const</span> spin_mutex&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    spin_mutex&amp; <span class="keyword">operator</span>= (<span class="keyword">const</span> spin_mutex&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    spin_mutex(spin_mutex&amp;&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    spin_mutex&amp; <span class="keyword">operator</span>= (spin_mutex&amp;&amp;) = <span class="keyword">delete</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (flag_.test_and_set(<span class="built_in">std</span>::memory_order_acquire))</span><br><span class="line">            ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        flag_.clear(<span class="built_in">std</span>::memory_order_release);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
     
     
-        
-      
-        <div id="reward-container">
+        <div class="reward-container">
   <div></div>
-  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
   <div id="qr" style="display: none;">
-        
       
-      <div style="display: inline-block">
+      <div style="display: inline-block;">
         <img src="/images/wechatpay.png" alt="起源|NaturalWill 微信支付">
         <p>微信支付</p>
       </div>
-        
       
-      <div style="display: inline-block">
+      <div style="display: inline-block;">
         <img src="/images/alipay.png" alt="起源|NaturalWill 支付宝">
         <p>支付宝</p>
       </div>
@@ -409,64 +337,69 @@
   </div>
 </div>
 
-      
 
       <footer class="post-footer">
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2018/02/28/Reading-Note-of-Nonviolent-Communication/" rel="next" title="听书笔记之《非暴力沟通》">
-                  <i class="fa fa-chevron-left"></i> 听书笔记之《非暴力沟通》
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2018/04/03/visual-studio-skill/" rel="prev" title="Visual Studio 技巧">
-                  Visual Studio 技巧 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/02/28/Reading-Note-of-Nonviolent-Communication/" rel="prev" title="听书笔记之《非暴力沟通》">
+      <i class="fa fa-chevron-left"></i> 听书笔记之《非暴力沟通》
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/04/03/visual-studio-skill/" rel="next" title="Visual Studio 技巧">
+      Visual Studio 技巧 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
   </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -484,80 +417,43 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="起源|NaturalWill">
+    <img class="site-author-image" itemprop="image" alt="起源|NaturalWill" src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">起源|NaturalWill</p>
   <div class="site-description" itemprop="description">随便写写</div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        <span class="site-state-item-count">38</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
+</div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="https://github.com/NaturalWill" title="GitHub &rarr; https://github.com/NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/NaturalWill" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="mailto:owner@naturalwill.me" title="E-Mail &rarr; mailto:owner@naturalwill.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:owner@naturalwill.me" title="E-Mail → mailto:owner@naturalwill.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="https://twitter.com/NaturalWill" title="Twitter &rarr; https://twitter.com/NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+        <a href="https://twitter.com/NaturalWill" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
       </span>
-    
   </div>
 
 
@@ -568,17 +464,14 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://blog.naturalwill.me" title="https://blog.naturalwill.me" rel="noopener" target="_blank">Home</a>
+          <a href="https://blog.naturalwill.me/" title="https:&#x2F;&#x2F;blog.naturalwill.me" rel="noopener" target="_blank">Home</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://naturalwill.github.io" title="https://naturalwill.github.io">Github Mirror</a>
+          <a href="https://naturalwill.github.io/" title="https:&#x2F;&#x2F;naturalwill.github.io">Github Mirror</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://tools.naturalwill.me" title="https://tools.naturalwill.me" rel="external nofollow noopener noreferrer" target="_blank">Tools</a>
+          <a href="https://tools.naturalwill.me/" title="https:&#x2F;&#x2F;tools.naturalwill.me" rel="external nofollow noopener noreferrer" target="_blank">Tools</a>
         </li>
-      
     </ul>
   </div>
 
@@ -587,7 +480,6 @@
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
-      
 
     </div>
   </aside>
@@ -597,17 +489,24 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">起源|NaturalWill</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动
+  </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a></div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 
@@ -618,30 +517,31 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-
-
-    
   
   <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
 
 
 
@@ -659,26 +559,20 @@
 
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.0"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 

@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/favicon.svg?v=7.4.0" color="#222">
-  <link rel="alternate" href="/atom.xml" title="WeiJie Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-corner-indicator.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://naturalwill.github.io').hostname,
     root: '/',
     scheme: 'Gemini',
-    version: '7.4.0',
+    version: '7.7.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     bookmark: {"enable":true,"color":"#222","save":"auto"},
@@ -40,6 +35,7 @@
     mediumzoom: false,
     lazyload: false,
     pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -49,13 +45,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
@@ -65,11 +55,11 @@
 <meta property="og:url" content="https://naturalwill.github.io/page/3/index.html">
 <meta property="og:site_name" content="WeiJie Blog">
 <meta property="og:description" content="随便写写">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="起源|NaturalWill">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WeiJie Blog">
-<meta name="twitter:description" content="随便写写">
-  <link rel="canonical" href="https://naturalwill.github.io/page/3/">
+
+<link rel="canonical" href="https://naturalwill.github.io/page/3/">
 
 
 <script id="page-configurations">
@@ -77,16 +67,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isPost: false
   };
 </script>
 
   <title>WeiJie Blog</title>
   
-
-
 
 
 
@@ -105,7 +91,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -119,11 +104,11 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -139,11 +124,11 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
 
@@ -151,77 +136,35 @@
 <nav class="site-nav">
   
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
-      
-    
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
-      
-    
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">38</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">36</span></a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
-      
-    
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">14</span></a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-links">
-      
-    
-      
-    
+        <li class="menu-item menu-item-archives">
 
-    <a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i> <br>链接</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">43</span></a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>链接</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
       </li>
-    
   </ul>
 
 </nav>
@@ -249,30 +192,30 @@
 
     
   <div class="reading-progress-bar"></div>
-  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <a href="https://github.com/naturalwill" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content">
             
 
-          <div id="content" class="content">
-            
-  <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
+  <div class="posts-expand">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/11/05/install-archlinux-on-wsl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -280,9 +223,8 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/11/05/install-archlinux-on-wsl/" class="post-title-link" itemprop="url">在 Windows 10 2017秋季更新后 WSL 替换 Ubuntu 为 Archlinux</a>
           
+            <a href="/2017/11/05/install-archlinux-on-wsl/" class="post-title-link" itemprop="url">在 Windows 10 2017秋季更新后 WSL 替换 Ubuntu 为 Archlinux</a>
         </h2>
 
         <div class="post-meta">
@@ -292,16 +234,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-11-05 01:20:47" itemprop="dateCreated datePublished" datetime="2017-11-05T01:20:47+08:00">2017-11-05</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -309,35 +243,29 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Windows/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Windows/WSL/" itemprop="url" rel="index"><span itemprop="name">WSL</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Windows/WSL/" itemprop="url" rel="index">
+                    <span itemprop="name">WSL</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -353,33 +281,26 @@
           <p>从Windows商店安装Ubuntu。</p>
 <p>从开始菜单打开 Ubuntu。</p>
 <p>通过 cmd 切换默认用户为 root:</p>
-<pre><code>&gt; ubuntu config --default-user root
-</code></pre><p>重新打开 Ubuntu。</p>
-<p>从 <a href="https://www.archlinux.org/download/" rel="external nofollow noopener noreferrer" target="_blank">Arch Linux Downloads</a>或镜像站 下载一个 archlinux-bootstrap.tar.gz, 并解压：</p>
+<pre><code>&gt; ubuntu config --default-user root</code></pre><p>重新打开 Ubuntu。</p>
+<p>从 <a href="https://www.archlinux.org/download/" target="_blank" rel="external nofollow noopener noreferrer">Arch Linux Downloads</a>或镜像站 下载一个 archlinux-bootstrap.tar.gz, 并解压：</p>
 <pre><code># wget https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/2018.05.01/archlinux-bootstrap-2018.05.01-x86_64.tar.gz
-# tar -zxvf archlinux-bootstrap-2018.05.01-x86_64.tar.gz
-</code></pre><p>修改 <code>~/root.x86_64/etc/pacman.d/mirrorlist</code>, 选择需要的服务器，取消注释。</p>
+# tar -zxvf archlinux-bootstrap-2018.05.01-x86_64.tar.gz</code></pre><p>修改 <code>~/root.x86_64/etc/pacman.d/mirrorlist</code>, 选择需要的服务器，取消注释。</p>
 <p>让WSL自动生成 /etc/resolv.conf:</p>
-<pre><code># echo &quot;# This file was automatically generated by WSL. To stop automatic generation of this file, remove this line.&quot; &gt; ~/root.x86_64/etc/resolv.conf
-</code></pre><p>退出所有 Ubuntu Shell, 在资源管理器中打开 <code>%localappdata%\Packages</code>, 并找到 <code>CanonicalGroupLimited.UbuntuonWindows_</code> 开头的文件夹，删除 <code>%localappdata%\Packages\CanonicalGroupLimited.UbuntuonWindows_*\LocalState\rootfs</code> 中的 bin, etc, lib, lib64, sbin, srv, usr 和 var 等 8 个文件夹。</p>
+<pre><code># echo &quot;# This file was automatically generated by WSL. To stop automatic generation of this file, remove this line.&quot; &gt; ~/root.x86_64/etc/resolv.conf</code></pre><p>退出所有 Ubuntu Shell, 在资源管理器中打开 <code>%localappdata%\Packages</code>, 并找到 <code>CanonicalGroupLimited.UbuntuonWindows_</code> 开头的文件夹，删除 <code>%localappdata%\Packages\CanonicalGroupLimited.UbuntuonWindows_*\LocalState\rootfs</code> 中的 bin, etc, lib, lib64, sbin, srv, usr 和 var 等 8 个文件夹。</p>
 <p>然后，<strong>移动</strong> <code>rootfs\root\root.x86_64</code> 中的 bin, etc, lib, lib64, sbin, srv, usr 和 var 到 <code>rootfs</code> 中。</p>
-<p><del>在另一个 Arch Linux 系统中构建 <a href="https://aur.archlinux.org/packages/fakeroot-tcp/" rel="external nofollow noopener noreferrer" target="_blank">fakeroot-tcp<sup>AUR</sup></a> 和 <a href="https://aur.archlinux.org/packages/glibc-wsl/" rel="external nofollow noopener noreferrer" target="_blank">glibc-wsl<sup>AUR</sup></a> , 然后复制到你的 Windows 电脑。 （通过 <code>--nocheck</code> 选项可以在 <code>makepkg</code> 编译 glibc-wsl 时跳过一个非常耗时的测试套件） <em>glibc-wsl</em> 用于解决 <a href="https://github.com/Microsoft/BashOnWindows/issues/1878" rel="external nofollow noopener noreferrer" target="_blank">这个bug</a>。 而直到 System V IPC 被完全实现之前 <em>fakeroot-tcp</em> 都是必需的。 (<a href="https://github.com/Microsoft/BashOnWindows/issues/1016" rel="external nofollow noopener noreferrer" target="_blank">详情</a>)</del></p>
-<p>在另一个 Arch Linux 系统中构建 <a href="https://aur.archlinux.org/packages/fakeroot-tcp/" rel="external nofollow noopener noreferrer" target="_blank">fakeroot-tcp<sup>AUR</sup></a> , 然后复制到你的 Windows 电脑。直到 System V IPC 被完全实现之前 <em>fakeroot-tcp</em> 都是必需的。 (<a href="https://github.com/Microsoft/BashOnWindows/issues/1016" rel="external nofollow noopener noreferrer" target="_blank">详情</a>)</p>
+<p><del>在另一个 Arch Linux 系统中构建 <a href="https://aur.archlinux.org/packages/fakeroot-tcp/" target="_blank" rel="external nofollow noopener noreferrer">fakeroot-tcp<sup>AUR</sup></a> 和 <a href="https://aur.archlinux.org/packages/glibc-wsl/" target="_blank" rel="external nofollow noopener noreferrer">glibc-wsl<sup>AUR</sup></a> , 然后复制到你的 Windows 电脑。 （通过 <code>--nocheck</code> 选项可以在 <code>makepkg</code> 编译 glibc-wsl 时跳过一个非常耗时的测试套件） <em>glibc-wsl</em> 用于解决 <a href="https://github.com/Microsoft/BashOnWindows/issues/1878" target="_blank" rel="external nofollow noopener noreferrer">这个bug</a>。 而直到 System V IPC 被完全实现之前 <em>fakeroot-tcp</em> 都是必需的。 (<a href="https://github.com/Microsoft/BashOnWindows/issues/1016" target="_blank" rel="external nofollow noopener noreferrer">详情</a>)</del></p>
+<p>在另一个 Arch Linux 系统中构建 <a href="https://aur.archlinux.org/packages/fakeroot-tcp/" target="_blank" rel="external nofollow noopener noreferrer">fakeroot-tcp<sup>AUR</sup></a> , 然后复制到你的 Windows 电脑。直到 System V IPC 被完全实现之前 <em>fakeroot-tcp</em> 都是必需的。 (<a href="https://github.com/Microsoft/BashOnWindows/issues/1016" target="_blank" rel="external nofollow noopener noreferrer">详情</a>)</p>
 <p>重新打开 Bash 以安装 Archlinux:</p>
 <pre><code># pacman-key --init
 # pacman-key --populate archlinux
 # pacman -Syy
 # pacman -U fakeroot-tcp-1.22-2-x86_64.pkg.tar.xz
-# pacman -Syu base base-devel
-</code></pre><p>注意：在安装 base 和 base-devel 时，需要取消 <del>glibc 和</del> fakeroot 。</p>
+# pacman -Syu base base-devel</code></pre><p>注意：在安装 base 和 base-devel 时，需要取消 <del>glibc 和</del> fakeroot 。</p>
 <p>最后，增加一个普通账号。</p>
 <pre><code># useradd -m -G wheel -s /bin/bash username
 # passwd root
-# passwd username
-</code></pre><p>并通过 cmd 设置该账号为默认账号：</p>
-<pre><code>&gt; ubuntu config --default-user username
-</code></pre>
-        
+# passwd username</code></pre><p>并通过 cmd 设置该账号为默认账号：</p>
+<pre><code>&gt; ubuntu config --default-user username</code></pre>
       
     </div>
 
@@ -387,27 +308,23 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/10/31/cefsharp-better-use-in-wpf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -415,9 +332,8 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/10/31/cefsharp-better-use-in-wpf/" class="post-title-link" itemprop="url">另类的 CefSharp.WPF 中文输入问题解决方案</a>
           
+            <a href="/2017/10/31/cefsharp-better-use-in-wpf/" class="post-title-link" itemprop="url">另类的 CefSharp.WPF 中文输入问题解决方案</a>
         </h2>
 
         <div class="post-meta">
@@ -427,16 +343,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-10-31 11:30:12" itemprop="dateCreated datePublished" datetime="2017-10-31T11:30:12+08:00">2017-10-31</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -444,35 +352,29 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/Net/" itemprop="url" rel="index"><span itemprop="name">.Net</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -488,13 +390,11 @@
           <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>由于某个需求，需要在原有的 WPF 程序上内嵌浏览器，最终选定 CefSharp.WPF , 但是还是有不少的问题影响着使用体验，比如：最开始遇到的不能输入中文、能输入中文了输入法候选框或右键菜单却跑到屏幕左上角，使用搜狗等第三方输入法不能输入等等。</p>
 <p>Google 上逛了很久，也试了很多方法，最后发现一个最简单好用的方案是借用 WinForm 控件。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/10/31/cefsharp-better-use-in-wpf/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -504,27 +404,23 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/09/25/add-rtmp-module-to-nginx-by-yum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -532,9 +428,8 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/09/25/add-rtmp-module-to-nginx-by-yum/" class="post-title-link" itemprop="url">为通过yum安装的Nginx添加nginx-rtmp-module</a>
           
+            <a href="/2017/09/25/add-rtmp-module-to-nginx-by-yum/" class="post-title-link" itemprop="url">为通过yum安装的Nginx添加nginx-rtmp-module</a>
         </h2>
 
         <div class="post-meta">
@@ -544,16 +439,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-09-25 17:09:40" itemprop="dateCreated datePublished" datetime="2017-09-25T17:09:40+08:00">2017-09-25</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -561,28 +448,23 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 21:49:49" itemprop="dateModified" datetime="2020-01-11T21:49:49+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Service/" itemprop="url" rel="index"><span itemprop="name">Service</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Service/" itemprop="url" rel="index">
+                    <span itemprop="name">Service</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -597,17 +479,16 @@
       
           <p>Nginx 一般都是编译安装，不过它本身也提供了通过yum安装的方式，比如在CentOS 7中需要先安装 Yum 源：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br></pre></td></tr></table></figure>
+
 <p>之后就是常规的 <code>yum -y install nginx</code> 。</p>
 <p>通过这一方式安装的Nginx已经可以通过系统服务的方式进行启动，相当便捷，但是很多有趣的第三方插件并没有能够加入，比如header-more-nginx-module，Nginx目前看来不像Tengine是可以后期动态添加模块的，所以解决的方案出了编译安装似乎没有其他的方式了。</p>
 <p>不过Nginx编译只生成一个二进制文件，那么，如果获取yum安装的Nginx编译参数，之后使用同一版本的源代码进行编译，之后替换生成文件就可以了。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/09/25/add-rtmp-module-to-nginx-by-yum/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -617,27 +498,23 @@
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/09/18/update-ui-when-cross-thread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -645,9 +522,8 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/09/18/update-ui-when-cross-thread/" class="post-title-link" itemprop="url">C# 跨线程更新 UI</a>
           
+            <a href="/2017/09/18/update-ui-when-cross-thread/" class="post-title-link" itemprop="url">C# 跨线程更新 UI</a>
         </h2>
 
         <div class="post-meta">
@@ -657,16 +533,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-09-18 18:01:28" itemprop="dateCreated datePublished" datetime="2017-09-18T18:01:28+08:00">2017-09-18</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -674,35 +542,29 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/Net/" itemprop="url" rel="index"><span itemprop="name">.Net</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -729,16 +591,13 @@ public void SetText(string text)
     {
         this.textBox1.Text = text;
     }
-}
-</code></pre><p>直接调用 <code>SetText</code> 即可。</p>
+}</code></pre><p>直接调用 <code>SetText</code> 即可。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/09/18/update-ui-when-cross-thread/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -748,27 +607,23 @@ public void SetText(string text)
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/06/21/install-nginx-php-mysql-in-ubuntu-16-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -776,9 +631,8 @@ public void SetText(string text)
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/06/21/install-nginx-php-mysql-in-ubuntu-16-04/" class="post-title-link" itemprop="url">Ubuntu 16.04 安装PHP、MySQL、Nginx</a>
           
+            <a href="/2017/06/21/install-nginx-php-mysql-in-ubuntu-16-04/" class="post-title-link" itemprop="url">Ubuntu 16.04 安装PHP、MySQL、Nginx</a>
         </h2>
 
         <div class="post-meta">
@@ -788,16 +642,8 @@ public void SetText(string text)
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-06-21 10:33:00" itemprop="dateCreated datePublished" datetime="2017-06-21T10:33:00+08:00">2017-06-21</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -805,28 +651,23 @@ public void SetText(string text)
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 21:49:57" itemprop="dateModified" datetime="2020-01-11T21:49:57+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Service/" itemprop="url" rel="index"><span itemprop="name">Service</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Service/" itemprop="url" rel="index">
+                    <span itemprop="name">Service</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -839,13 +680,8 @@ public void SetText(string text)
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="更新-apt-包"><a href="#更新-apt-包" class="headerlink" title="更新 apt 包"></a>更新 apt 包</h2><pre><code>sudo apt update
-</code></pre><h2 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h2><pre><code>sudo apt install mysql-server mysql-client
-</code></pre><h2 id="安装-PHP-7"><a href="#安装-PHP-7" class="headerlink" title="安装 PHP 7"></a>安装 PHP 7</h2><pre><code>sudo apt install php-{cli,fpm}
-</code></pre><p>安装PHP插件</p>
-<pre><code>sudo apt install php-{mcrypt,mbstring,curl,gd,mysql,xml}
-</code></pre><h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><pre><code>sudo apt install nginx-full
-</code></pre><p>配置Nginx, 使之支持PHP, 编辑<code>/etc/nginx/sites-enabled/default</code>, 在server段中找到以下一段并解除部分注释，使其如下：</p>
+          <h2 id="更新-apt-包"><a href="#更新-apt-包" class="headerlink" title="更新 apt 包"></a>更新 apt 包</h2><pre><code>sudo apt update</code></pre><h2 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h2><pre><code>sudo apt install mysql-server mysql-client</code></pre><h2 id="安装-PHP-7"><a href="#安装-PHP-7" class="headerlink" title="安装 PHP 7"></a>安装 PHP 7</h2><pre><code>sudo apt install php-{cli,fpm}</code></pre><p>安装PHP插件</p>
+<pre><code>sudo apt install php-{mcrypt,mbstring,curl,gd,mysql,xml}</code></pre><h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><pre><code>sudo apt install nginx-full</code></pre><p>配置Nginx, 使之支持PHP, 编辑<code>/etc/nginx/sites-enabled/default</code>, 在server段中找到以下一段并解除部分注释，使其如下：</p>
 <pre><code># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
 #
 location ~ \.php$ {
@@ -855,9 +691,7 @@ location ~ \.php$ {
     #fastcgi_pass 127.0.0.1:9000;
     # With php7.0-fpm:
     fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-}
-</code></pre>
-        
+}</code></pre>
       
     </div>
 
@@ -865,27 +699,23 @@ location ~ \.php$ {
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/05/05/ffmpeg-notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -893,9 +723,8 @@ location ~ \.php$ {
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/05/05/ffmpeg-notes/" class="post-title-link" itemprop="url">ffmpeg 获取摄像头、麦克风选项</a>
           
+            <a href="/2017/05/05/ffmpeg-notes/" class="post-title-link" itemprop="url">ffmpeg 获取摄像头、麦克风选项</a>
         </h2>
 
         <div class="post-meta">
@@ -905,16 +734,8 @@ location ~ \.php$ {
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-05-05 11:44:09" itemprop="dateCreated datePublished" datetime="2017-05-05T11:44:09+08:00">2017-05-05</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -922,28 +743,23 @@ location ~ \.php$ {
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -970,8 +786,7 @@ ffmpeg version 3.2.4 Copyright (c) 2000-2017 the FFmpeg developers
 [dshow @ 00000000001c23c0]     Alternative name &quot;@device_cm_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\wave_{E26AD2BE-B335-41EC-BED5-40F982F21FF7}&quot;
 [dshow @ 00000000001c23c0]  &quot;virtual-audio-capturer&quot;
 [dshow @ 00000000001c23c0]     Alternative name &quot;@device_sw_{33D9A762-90C8-11D0-BD43-00A0C911CE86}\{8E146464-DB61-4309-AFA1-3578E927E935}&quot;
-dummy: Immediate exit requested
-</code></pre><h2 id="查看设备选项"><a href="#查看设备选项" class="headerlink" title="查看设备选项"></a>查看设备选项</h2><p>video</p>
+dummy: Immediate exit requested</code></pre><h2 id="查看设备选项"><a href="#查看设备选项" class="headerlink" title="查看设备选项"></a>查看设备选项</h2><p>video</p>
 <pre><code>$ ./ffmpeg -list_options true -f dshow -i video=&quot;Integrated Webcam&quot;
 ffmpeg version 3.2.4 Copyright (c) 2000-2017 the FFmpeg developers
   built with gcc 6.3.0 (GCC)
@@ -991,8 +806,7 @@ ffmpeg version 3.2.4 Copyright (c) 2000-2017 the FFmpeg developers
 [dshow @ 0000000000ea23e0]   pixel_format=yuyv422  min s=1280x720 fps=11 max s=1280x720 fps=11
 [dshow @ 0000000000ea23e0]   vcodec=mjpeg  min s=1280x720 fps=10 max s=1280x720 fps=30
 [dshow @ 0000000000ea23e0]   vcodec=mjpeg  min s=1280x720 fps=10 max s=1280x720 fps=30
-video=Integrated Webcam: Immediate exit requested
-</code></pre><p>audio</p>
+video=Integrated Webcam: Immediate exit requested</code></pre><p>audio</p>
 <pre><code>$ ./ffmpeg -list_options true -f dshow -i audio=&quot;麦克风 (High Definition Audio 设备)&quot;
 ffmpeg version 3.2.4 Copyright (c) 2000-2017 the FFmpeg developers
   built with gcc 6.3.0 (GCC)
@@ -1000,9 +814,7 @@ ffmpeg version 3.2.4 Copyright (c) 2000-2017 the FFmpeg developers
 [dshow @ 00000000024d24a0]  Pin &quot;Capture&quot; (alternative pin name &quot;Capture&quot;)
 [dshow @ 00000000024d24a0]   min ch=1 bits=8 rate= 11025 max ch=2 bits=16 rate= 44100
     Last message repeated 22 times
-audio=麦克风 (High Definition Audio 设备): Immediate exit requested
-</code></pre>
-        
+audio=麦克风 (High Definition Audio 设备): Immediate exit requested</code></pre>
       
     </div>
 
@@ -1010,27 +822,23 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/05/03/Teamtalk-awesome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1038,9 +846,8 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/05/03/Teamtalk-awesome/" class="post-title-link" itemprop="url">Teamtalk</a>
           
+            <a href="/2017/05/03/Teamtalk-awesome/" class="post-title-link" itemprop="url">Teamtalk</a>
         </h2>
 
         <div class="post-meta">
@@ -1050,16 +857,8 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-05-03 17:15:33" itemprop="dateCreated datePublished" datetime="2017-05-03T17:15:33+08:00">2017-05-03</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -1067,28 +866,23 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 21:52:24" itemprop="dateModified" datetime="2020-01-11T21:52:24+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/IM/" itemprop="url" rel="index"><span itemprop="name">IM</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/IM/" itemprop="url" rel="index">
+                    <span itemprop="name">IM</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -1109,15 +903,13 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
 <li>iOS</li>
 <li>Android</li>
 </ul>
-<p>Gethub: <a href="https://github.com/mogujie/TeamTalk" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/mogujie/TeamTalk</a></p>
+<p>Gethub: <a href="https://github.com/mogujie/TeamTalk" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/mogujie/TeamTalk</a></p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/05/03/Teamtalk-awesome/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1127,27 +919,23 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/03/29/Compile-and-deploy-TeamTalk-in-Ubuntu-Server-16-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1155,9 +943,8 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/03/29/Compile-and-deploy-TeamTalk-in-Ubuntu-Server-16-04/" class="post-title-link" itemprop="url">TeamTalk server 编译与部署笔记</a>
           
+            <a href="/2017/03/29/Compile-and-deploy-TeamTalk-in-Ubuntu-Server-16-04/" class="post-title-link" itemprop="url">TeamTalk server 编译与部署笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -1167,16 +954,8 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-03-29 09:53:00" itemprop="dateCreated datePublished" datetime="2017-03-29T09:53:00+08:00">2017-03-29</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -1184,28 +963,23 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 21:52:13" itemprop="dateModified" datetime="2020-01-11T21:52:13+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/IM/" itemprop="url" rel="index"><span itemprop="name">IM</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/IM/" itemprop="url" rel="index">
+                    <span itemprop="name">IM</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -1222,16 +996,13 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested
 <p>为了简化问题，全程采用 root 操作。</p>
 <h2 id="编译前准备"><a href="#编译前准备" class="headerlink" title="编译前准备"></a>编译前准备</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><pre><code>操作系统: Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-62-generic x86_64)
 域名： teamtalk.naturalwill.me
-IP: 192.168.1.70
-</code></pre>
+IP: 192.168.1.70</code></pre>
           <!--noindex-->
-          
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/03/29/Compile-and-deploy-TeamTalk-in-Ubuntu-Server-16-04/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1241,27 +1012,23 @@ IP: 192.168.1.70
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/03/07/create-mdi-window-in-WPF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1269,9 +1036,8 @@ IP: 192.168.1.70
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/03/07/create-mdi-window-in-WPF/" class="post-title-link" itemprop="url">【另辟蹊径】如何在 WPF 实现 MDI 窗口</a>
           
+            <a href="/2017/03/07/create-mdi-window-in-WPF/" class="post-title-link" itemprop="url">【另辟蹊径】如何在 WPF 实现 MDI 窗口</a>
         </h2>
 
         <div class="post-meta">
@@ -1281,16 +1047,8 @@ IP: 192.168.1.70
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-03-07 16:59:18" itemprop="dateCreated datePublished" datetime="2017-03-07T16:59:18+08:00">2017-03-07</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -1298,35 +1056,29 @@ IP: 192.168.1.70
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/Net/" itemprop="url" rel="index"><span itemprop="name">.Net</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -1344,13 +1096,11 @@ IP: 192.168.1.70
 <p>然而，坑还是有的，我把 WPF Image 对象和图片数据传给 SDL ，它却直接把整个窗体霸占了 T_T 。</p>
 <p>因此，只能把整个窗体给 SDL 了。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/03/07/create-mdi-window-in-WPF/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1360,27 +1110,23 @@ IP: 192.168.1.70
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/03/07/display-RGB-or-YUV-by-SDL2-in-WPF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1388,9 +1134,8 @@ IP: 192.168.1.70
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/03/07/display-RGB-or-YUV-by-SDL2-in-WPF/" class="post-title-link" itemprop="url">在 WPF 中调用 SDL2 播放 RGB/YUV</a>
           
+            <a href="/2017/03/07/display-RGB-or-YUV-by-SDL2-in-WPF/" class="post-title-link" itemprop="url">在 WPF 中调用 SDL2 播放 RGB/YUV</a>
         </h2>
 
         <div class="post-meta">
@@ -1400,16 +1145,8 @@ IP: 192.168.1.70
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-03-07 14:00:18" itemprop="dateCreated datePublished" datetime="2017-03-07T14:00:18+08:00">2017-03-07</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -1417,35 +1154,29 @@ IP: 192.168.1.70
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 16:47:31" itemprop="dateModified" datetime="2020-01-11T16:47:31+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/编程/Net/" itemprop="url" rel="index"><span itemprop="name">.Net</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%BC%96%E7%A8%8B/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -1460,13 +1191,11 @@ IP: 192.168.1.70
       
           <h2 id="SDL简介"><a href="#SDL简介" class="headerlink" title="SDL简介"></a>SDL简介</h2><p>SDL（Simple DirectMedia Layer）是一套开放源代码的跨平台多媒体开发库，使用C语言写成。SDL提供了数种控制图像、声音、输出入的函数，让开发者只要用相同或是相似的代码就可以开发出跨多个平台（Linux、Windows、Mac OS X等）的应用软件。目前SDL多用于开发游戏、模拟器、媒体播放器等多媒体应用领域。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2017/03/07/display-RGB-or-YUV-by-SDL2-in-WPF/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
-          
           <!--/noindex-->
         
       
@@ -1476,16 +1205,13 @@ IP: 192.168.1.70
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
   </div>
 
   
@@ -1494,18 +1220,39 @@ IP: 192.168.1.70
   </nav>
 
 
+
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
   <aside class="sidebar">
@@ -1527,80 +1274,43 @@ IP: 192.168.1.70
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="起源|NaturalWill">
+    <img class="site-author-image" itemprop="image" alt="起源|NaturalWill" src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">起源|NaturalWill</p>
   <div class="site-description" itemprop="description">随便写写</div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        <span class="site-state-item-count">38</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
+</div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="https://github.com/NaturalWill" title="GitHub &rarr; https://github.com/NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/NaturalWill" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="mailto:owner@naturalwill.me" title="E-Mail &rarr; mailto:owner@naturalwill.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:owner@naturalwill.me" title="E-Mail → mailto:owner@naturalwill.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="https://twitter.com/NaturalWill" title="Twitter &rarr; https://twitter.com/NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+        <a href="https://twitter.com/NaturalWill" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
       </span>
-    
   </div>
 
 
@@ -1611,17 +1321,14 @@ IP: 192.168.1.70
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://blog.naturalwill.me" title="https://blog.naturalwill.me" rel="noopener" target="_blank">Home</a>
+          <a href="https://blog.naturalwill.me/" title="https:&#x2F;&#x2F;blog.naturalwill.me" rel="noopener" target="_blank">Home</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://naturalwill.github.io" title="https://naturalwill.github.io">Github Mirror</a>
+          <a href="https://naturalwill.github.io/" title="https:&#x2F;&#x2F;naturalwill.github.io">Github Mirror</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://tools.naturalwill.me" title="https://tools.naturalwill.me" rel="external nofollow noopener noreferrer" target="_blank">Tools</a>
+          <a href="https://tools.naturalwill.me/" title="https:&#x2F;&#x2F;tools.naturalwill.me" rel="external nofollow noopener noreferrer" target="_blank">Tools</a>
         </li>
-      
     </ul>
   </div>
 
@@ -1630,7 +1337,6 @@ IP: 192.168.1.70
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
-      
 
     </div>
   </aside>
@@ -1640,17 +1346,24 @@ IP: 192.168.1.70
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">起源|NaturalWill</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动
+  </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a></div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 
@@ -1661,30 +1374,31 @@ IP: 192.168.1.70
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-
-
-    
   
   <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
 
 
 
@@ -1702,26 +1416,20 @@ IP: 192.168.1.70
 
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.0"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 

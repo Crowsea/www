@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/favicon.svg?v=7.4.0" color="#222">
-  <link rel="alternate" href="/atom.xml" title="WeiJie Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-corner-indicator.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('https://naturalwill.github.io').hostname,
     root: '/',
     scheme: 'Gemini',
-    version: '7.4.0',
+    version: '7.7.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     bookmark: {"enable":true,"color":"#222","save":"auto"},
@@ -40,6 +35,7 @@
     mediumzoom: false,
     lazyload: false,
     pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
     algolia: {
       appID: '',
       apiKey: '',
@@ -49,29 +45,25 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
-  <meta name="description" content="记录 TeamTalk Server 的部署过程，仅供大家参考。 为了简化问题，全程采用 root 操作。 编译前准备环境操作系统: Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-62-generic x86_64) 域名： teamtalk.naturalwill.me IP: 192.168.1.70">
-<meta name="keywords" content="TeamTalk,C&#x2F;C++">
+  <meta name="description" content="记录 TeamTalk Server 的部署过程，仅供大家参考。 为了简化问题，全程采用 root 操作。 编译前准备环境操作系统: Ubuntu 16.04.2 LTS (GNU&#x2F;Linux 4.4.0-62-generic x86_64) 域名： teamtalk.naturalwill.me IP: 192.168.1.70">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TeamTalk server 编译与部署笔记">
 <meta property="og:url" content="https://naturalwill.github.io/2017/03/29/Compile-and-deploy-TeamTalk-in-Ubuntu-Server-16-04/index.html">
 <meta property="og:site_name" content="WeiJie Blog">
-<meta property="og:description" content="记录 TeamTalk Server 的部署过程，仅供大家参考。 为了简化问题，全程采用 root 操作。 编译前准备环境操作系统: Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-62-generic x86_64) 域名： teamtalk.naturalwill.me IP: 192.168.1.70">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-11T13:52:13.309Z">
+<meta property="og:description" content="记录 TeamTalk Server 的部署过程，仅供大家参考。 为了简化问题，全程采用 root 操作。 编译前准备环境操作系统: Ubuntu 16.04.2 LTS (GNU&#x2F;Linux 4.4.0-62-generic x86_64) 域名： teamtalk.naturalwill.me IP: 192.168.1.70">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-03-29T01:53:00.000Z">
+<meta property="article:modified_time" content="2020-01-11T13:52:13.309Z">
+<meta property="article:author" content="起源|NaturalWill">
+<meta property="article:tag" content="TeamTalk">
+<meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TeamTalk server 编译与部署笔记">
-<meta name="twitter:description" content="记录 TeamTalk Server 的部署过程，仅供大家参考。 为了简化问题，全程采用 root 操作。 编译前准备环境操作系统: Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-62-generic x86_64) 域名： teamtalk.naturalwill.me IP: 192.168.1.70">
-  <link rel="canonical" href="https://naturalwill.github.io/2017/03/29/Compile-and-deploy-TeamTalk-in-Ubuntu-Server-16-04/">
+
+<link rel="canonical" href="https://naturalwill.github.io/2017/03/29/Compile-and-deploy-TeamTalk-in-Ubuntu-Server-16-04/">
 
 
 <script id="page-configurations">
@@ -79,16 +71,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
   <title>TeamTalk server 编译与部署笔记 | WeiJie Blog</title>
   
-
-
 
 
 
@@ -107,7 +95,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -121,11 +108,11 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -141,11 +128,11 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
 
@@ -153,77 +140,35 @@
 <nav class="site-nav">
   
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
-      
-    
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
-      
-    
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">38</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">36</span></a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
-      
-    
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">14</span></a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-links">
-      
-    
-      
-    
+        <li class="menu-item menu-item-archives">
 
-    <a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i> <br>链接</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">43</span></a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>链接</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
       </li>
-    
   </ul>
 
 </nav>
@@ -251,40 +196,38 @@
 
     
   <div class="reading-progress-bar"></div>
-  <a class="book-mark-link book-mark-link-fixed" href="#"></a>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <a href="https://github.com/naturalwill" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content">
             
 
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block post">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://naturalwill.github.io/2017/03/29/Compile-and-deploy-TeamTalk-in-Ubuntu-Server-16-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="起源|NaturalWill">
       <meta itemprop="description" content="随便写写">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="WeiJie Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">TeamTalk server 编译与部署笔记
-
-          
+        <h2 class="post-title" itemprop="name headline">
+          TeamTalk server 编译与部署笔记
         </h2>
 
         <div class="post-meta">
@@ -294,16 +237,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2017-03-29 09:53:00" itemprop="dateCreated datePublished" datetime="2017-03-29T09:53:00+08:00">2017-03-29</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -311,28 +246,23 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2020-01-11 21:52:13" itemprop="dateModified" datetime="2020-01-11T21:52:13+08:00">2020-01-11</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
-
-                
-                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机</span>
+                  </a>
+                </span>
                   ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机/IM/" itemprop="url" rel="index"><span itemprop="name">IM</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/IM/" itemprop="url" rel="index">
+                    <span itemprop="name">IM</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -349,11 +279,10 @@
 <p>为了简化问题，全程采用 root 操作。</p>
 <h2 id="编译前准备"><a href="#编译前准备" class="headerlink" title="编译前准备"></a>编译前准备</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><pre><code>操作系统: Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-62-generic x86_64)
 域名： teamtalk.naturalwill.me
-IP: 192.168.1.70
-</code></pre><a id="more"></a>
+IP: 192.168.1.70</code></pre><a id="more"></a>
+
 <p>更新操作系统:</p>
-<pre><code>apt update &amp;&amp; apt upgrade
-</code></pre><p>该命令会执行更新，会消耗一段时间，国内用户，建议使用科大源或者163，搜狐等都可以，这会为大家节省很多时间，具体使用方法，可以见相关的页面:</p>
+<pre><code>apt update &amp;&amp; apt upgrade</code></pre><p>该命令会执行更新，会消耗一段时间，国内用户，建议使用科大源或者163，搜狐等都可以，这会为大家节省很多时间，具体使用方法，可以见相关的页面:</p>
 <pre><code>清华源帮助：
     https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 
@@ -364,17 +293,15 @@ IP: 192.168.1.70
     http://mirrors.sohu.com/help/ubuntu.html
 
 科大源帮助:
-    https://lug.ustc.edu.cn/wiki/mirrors/help/ubuntu
-</code></pre><h3 id="安装-MySQL-、-Nginx-、-Redis"><a href="#安装-MySQL-、-Nginx-、-Redis" class="headerlink" title="安装 MySQL 、 Nginx 、 Redis"></a>安装 MySQL 、 Nginx 、 Redis</h3><pre><code>apt install -y nginx-full
+    https://lug.ustc.edu.cn/wiki/mirrors/help/ubuntu</code></pre><h3 id="安装-MySQL-、-Nginx-、-Redis"><a href="#安装-MySQL-、-Nginx-、-Redis" class="headerlink" title="安装 MySQL 、 Nginx 、 Redis"></a>安装 MySQL 、 Nginx 、 Redis</h3><pre><code>apt install -y nginx-full
 apt install -y redis-server
-apt install -y mysql-server
-</code></pre><h3 id="安装-Termcap"><a href="#安装-Termcap" class="headerlink" title="安装 Termcap"></a>安装 Termcap</h3><pre><code>wget https://ftp.gnu.org/gnu/termcap/termcap-1.3.1.tar.gz
+apt install -y mysql-server</code></pre><h3 id="安装-Termcap"><a href="#安装-Termcap" class="headerlink" title="安装 Termcap"></a>安装 Termcap</h3><pre><code>wget https://ftp.gnu.org/gnu/termcap/termcap-1.3.1.tar.gz
 tar -xzvf termcap-1.3.1.tar.gz
 cd termcap-1.3.1
 ./configure --prefix=/usr
-make -j 2 &amp;&amp; make install
-</code></pre><h3 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h3><p>安装 PHP 及需要用到的插件</p>
+make -j 2 &amp;&amp; make install</code></pre><h3 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h3><p>安装 PHP 及需要用到的插件</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add-apt-repository ppa:ondrej/php</span><br><span class="line">apt install -y software-properties-common</span><br><span class="line">apt update</span><br><span class="line">apt install -y --allow-unauthenticated php5.6-&#123;fpm,cli,dev,gd,mcrypt,mysqli,curl,mbstring,exif&#125;</span><br></pre></td></tr></table></figure>
+
 <p>配置 PHP ：</p>
 <pre><code>sed -i &apos;s/post_max_size = 8M/post_max_size = 50M/g&apos; /etc/php/5.6/fpm/php.ini
 sed -i &apos;s/upload_max_filesize = 2M/upload_max_filesize = 50M/g&apos; /etc/php/5.6/fpm/php.ini
@@ -386,9 +313,9 @@ sed -i &apos;s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g&apos; /etc/php/5.6/fpm/p
 sed -i &apos;s/max_execution_time = 30/max_execution_time = 300/g&apos; /etc/php/5.6/fpm/php.ini
 sed -i &apos;s/register_long_arrays = On/;register_long_arrays = On/g&apos; /etc/php/5.6/fpm/php.ini
 sed -i &apos;s/magic_quotes_gpc = On/;magic_quotes_gpc = On/g&apos; /etc/php/5.6/fpm/php.ini
-sed -i &apos;s/disable_functions =.*/disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server/g&apos; /etc/php/5.6/fpm/php.ini
-</code></pre><h3 id="安装-PHP-zend-loader-（可选）"><a href="#安装-PHP-zend-loader-（可选）" class="headerlink" title="安装 PHP zend-loader （可选）"></a>安装 PHP zend-loader （可选）</h3><p>安装对应版本的 <a href="http://www.zend.com/en/products/loader/downloads#Linux" rel="external nofollow noopener noreferrer" target="_blank">Zend Guard Loader</a></p>
+sed -i &apos;s/disable_functions =.*/disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server/g&apos; /etc/php/5.6/fpm/php.ini</code></pre><h3 id="安装-PHP-zend-loader-（可选）"><a href="#安装-PHP-zend-loader-（可选）" class="headerlink" title="安装 PHP zend-loader （可选）"></a>安装 PHP zend-loader （可选）</h3><p>安装对应版本的 <a href="http://www.zend.com/en/products/loader/downloads#Linux" target="_blank" rel="external nofollow noopener noreferrer">Zend Guard Loader</a></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://downloads.zend.com/guard/7.0.0/zend-loader-php5.6-linux-x86_64_update1.tar.gz</span><br><span class="line">mkdir -p /usr/<span class="built_in">local</span>/zend/ <span class="comment">#1489462850:0</span></span><br><span class="line">tar -xzvf zend-loader-php5.6-linux-x86_64_update1.tar.gz</span><br><span class="line">cp zend-loader-php5.6-linux-x86_64/*.so /usr/<span class="built_in">local</span>/zend/</span><br></pre></td></tr></table></figure>
+
 <p>修改 PHP 配置文件 <code>/etc/php/5.6/fpm/php.ini</code> ，在文件末尾添加：</p>
 <pre><code>;eaccelerator
 
@@ -400,83 +327,62 @@ zend_extension=/usr/local/zend/opcache.so
 zend_loader.enable=1
 zend_loader.disable_licensing=0
 zend_loader.obfuscation_level_support=3
-zend_loader.license_path=
-</code></pre><h2 id="编译-Teamtalk"><a href="#编译-Teamtalk" class="headerlink" title="编译 Teamtalk"></a>编译 Teamtalk</h2><p>下载并解压：</p>
+zend_loader.license_path=</code></pre><h2 id="编译-Teamtalk"><a href="#编译-Teamtalk" class="headerlink" title="编译 Teamtalk"></a>编译 Teamtalk</h2><p>下载并解压：</p>
 <pre><code>wget https://github.com/meili/TeamTalk/archive/master.zip -O TeamTalk-master.zip
 unzip TeamTalk-master.zip
-mv TeamTalk-master ~/TeamTalk
-</code></pre><h3 id="安装依赖："><a href="#安装依赖：" class="headerlink" title="安装依赖："></a>安装依赖：</h3><pre><code>apt install -y protobuf-compiler cmake make g++ git openssl libuu-dev libssl-dev libhiredis-dev libprotobuf-dev libcurl4-openssl-dev
+mv TeamTalk-master ~/TeamTalk</code></pre><h3 id="安装依赖："><a href="#安装依赖：" class="headerlink" title="安装依赖："></a>安装依赖：</h3><pre><code>apt install -y protobuf-compiler cmake make g++ git openssl libuu-dev libssl-dev libhiredis-dev libprotobuf-dev libcurl4-openssl-dev
 
 cd ~/TeamTalk/server/src
 bash ./make_hiredis.sh
 
 apt install -y mysql-client libmysqlclient-dev
-ln -s /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/x86_64-linux-gnu/libmysqlclient_r.so
-</code></pre><h3 id="编译-google-protobuf"><a href="#编译-google-protobuf" class="headerlink" title="编译 google protobuf"></a>编译 google protobuf</h3><pre><code>cd ~/TeamTalk/server/src/protobuf/
+ln -s /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/x86_64-linux-gnu/libmysqlclient_r.so</code></pre><h3 id="编译-google-protobuf"><a href="#编译-google-protobuf" class="headerlink" title="编译 google protobuf"></a>编译 google protobuf</h3><pre><code>cd ~/TeamTalk/server/src/protobuf/
 tar -xzf protobuf-2.6.1.tar.gz
 cd protobuf-2.6.1/
 ./configure --prefix=/usr/local/protobuf
-make -j 2 &amp;&amp; make install
-</code></pre><p>拷贝pb相关文件</p>
+make -j 2 &amp;&amp; make install</code></pre><p>拷贝pb相关文件</p>
 <pre><code>mkdir -p ~/TeamTalk/server/src/base/pb/lib/linux/
 cp /usr/local/protobuf/lib/libprotobuf-lite.a ~/TeamTalk/server/src/base/pb/lib/linux/
-cp -r /usr/local/protobuf/include/* ~/TeamTalk/server/src/base/pb/
-</code></pre><p>生成pb协议</p>
+cp -r /usr/local/protobuf/include/* ~/TeamTalk/server/src/base/pb/</code></pre><p>生成pb协议</p>
 <pre><code>cd ~/TeamTalk/pb
 export PATH=/usr/local/protobuf/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/protobuf/lib:$LD_LIBRARY_PATH
-bash create.sh
-</code></pre><p>将相关文件拷贝到server 目录下：</p>
-<pre><code>bash sync.sh
-</code></pre><h3 id="安装-log4cxx"><a href="#安装-log4cxx" class="headerlink" title="安装 log4cxx"></a>安装 log4cxx</h3><pre><code>apt -y install liblog4cxx-dev liblog4cxx10-dev
+bash create.sh</code></pre><p>将相关文件拷贝到server 目录下：</p>
+<pre><code>bash sync.sh</code></pre><h3 id="安装-log4cxx"><a href="#安装-log4cxx" class="headerlink" title="安装 log4cxx"></a>安装 log4cxx</h3><pre><code>apt -y install liblog4cxx-dev liblog4cxx10-dev
 
 cd ~/TeamTalk/server/src
 rm -rf slog/include
 cp -rf /usr/include/log4cxx slog/include
 
 mkdir -p slog/lib/
-cp -f $(dpkg -L liblog4cxx-dev | grep \\.so$)* slog/lib/
-</code></pre><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><pre><code>cd ~/TeamTalk/server/src
-bash build_ubuntu.sh version 1.0.0
-</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>cd ~/TeamTalk/server
+cp -f $(dpkg -L liblog4cxx-dev | grep \\.so$)* slog/lib/</code></pre><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><pre><code>cd ~/TeamTalk/server/src
+bash build_ubuntu.sh version 1.0.0</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>cd ~/TeamTalk/server
 tar -xzf im-server-1.0.0.tar.gz
 mv im-server-1.0.0 /usr/local/teamtalk
 cd /usr/local/teamtalk &amp;&amp; sh sync_lib_for_zip.sh
-ln -s /usr/local/teamtalk/daeml /usr/local/bin/daeml
-</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><p>登陆mysql:</p>
-<pre><code>mysql -uroot -p
-</code></pre><p>创建TeamTalk数据库:</p>
-<pre><code>create database teamtalk
-</code></pre><p>见到如下:</p>
+ln -s /usr/local/teamtalk/daeml /usr/local/bin/daeml</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><p>登陆mysql:</p>
+<pre><code>mysql -uroot -p</code></pre><p>创建TeamTalk数据库:</p>
+<pre><code>create database teamtalk</code></pre><p>见到如下:</p>
 <pre><code>mysql&gt; create database teamtalk;
-Query OK, 1 row affected (0.00 sec)
-</code></pre><p>创建成功。</p>
+Query OK, 1 row affected (0.00 sec)</code></pre><p>创建成功。</p>
 <p>创建teamtalk用户并给teamtalk用户授权teamtalk的操作:</p>
 <pre><code>grant select,insert,update,delete on teamtalk.* to &apos;teamtalk&apos;@&apos;%&apos; identified by &apos;12345&apos;;
-flush privileges;
-</code></pre><p>导入数据库.</p>
+flush privileges;</code></pre><p>导入数据库.</p>
 <pre><code>use teamtalk;
 source ~/TeamTalk/auto_setup/mariadb/conf/ttopen.sql;
-show tables;
-</code></pre><h3 id="PHP-程序配置"><a href="#PHP-程序配置" class="headerlink" title="PHP 程序配置"></a>PHP 程序配置</h3><p>执行如下命令:</p>
+show tables;</code></pre><h3 id="PHP-程序配置"><a href="#PHP-程序配置" class="headerlink" title="PHP 程序配置"></a>PHP 程序配置</h3><p>执行如下命令:</p>
 <pre><code>mkdir -p /var/www/teamtalk
-cp -r ~/TeamTalk/php/* /var/www/teamtalk/
-</code></pre><p>修改config.php:</p>
+cp -r ~/TeamTalk/php/* /var/www/teamtalk/</code></pre><p>修改config.php:</p>
 <pre><code>cd /var/www/teamtalk/
-vim application/config/config.php
-</code></pre><p>修改第18-19行:</p>
+vim application/config/config.php</code></pre><p>修改第18-19行:</p>
 <pre><code>$config[&apos;msfs_url&apos;] = &apos;http://teamtalk.naturalwill.me:8700/&apos;;
-$config[&apos;http_url&apos;] = &apos;http://teamtalk.naturalwill.me:8400&apos;;
-</code></pre><p>修改database.php</p>
-<pre><code>vim application/config/database.php
-</code></pre><p>修改52-54行:</p>
+$config[&apos;http_url&apos;] = &apos;http://teamtalk.naturalwill.me:8400&apos;;</code></pre><p>修改database.php</p>
+<pre><code>vim application/config/database.php</code></pre><p>修改52-54行:</p>
 <pre><code>$db[&apos;default&apos;][&apos;hostname&apos;] = &apos;127.0.0.1&apos;;
 $db[&apos;default&apos;][&apos;username&apos;] = &apos;tamtalk&apos;;
 $db[&apos;default&apos;][&apos;password&apos;] = &apos;12345&apos;;
-$db[&apos;default&apos;][&apos;database&apos;] = &apos;teamtalk&apos;;
-</code></pre><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>创建 Nginx 配置：</p>
-<pre><code>vim /etc/nginx/sites-available/teamtalk.conf
-</code></pre><p>修改如下：</p>
+$db[&apos;default&apos;][&apos;database&apos;] = &apos;teamtalk&apos;;</code></pre><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>创建 Nginx 配置：</p>
+<pre><code>vim /etc/nginx/sites-available/teamtalk.conf</code></pre><p>修改如下：</p>
 <pre><code>server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -510,11 +416,9 @@ $db[&apos;default&apos;][&apos;database&apos;] = &apos;teamtalk&apos;;
         rewrite ^/(.*)$ /index.php/$1 last;
         break;
     }
-}
-</code></pre><p>激活配置：</p>
+}</code></pre><p>激活配置：</p>
 <pre><code>ln -s /etc/nginx/sites-available/teamtalk.conf /etc/nginx/sites-enabled/teamtalk.conf
-systemctl reload nginx
-</code></pre><h3 id="TeamTalk-配置"><a href="#TeamTalk-配置" class="headerlink" title="TeamTalk 配置"></a>TeamTalk 配置</h3><p>必须修改的配置：</p>
+systemctl reload nginx</code></pre><h3 id="TeamTalk-配置"><a href="#TeamTalk-配置" class="headerlink" title="TeamTalk 配置"></a>TeamTalk 配置</h3><p>必须修改的配置：</p>
 <ol>
 <li>db_proxy_server 中的数据库配置</li>
 <li>msg_server 中的 DBServer 需要有 2 个</li>
@@ -572,8 +476,7 @@ group_member_db=5
 group_member_maxconncnt=48
 
 #AES 密钥
-aesKey=12345678901234567890123456789012
-</code></pre><p>ListenIP:db_proxy_server监听的IP。</p>
+aesKey=12345678901234567890123456789012</code></pre><p>ListenIP:db_proxy_server监听的IP。</p>
 <p>ListenPort:db_proxy_server监听的port</p>
 <p>ThreadNum:工作线程个数。</p>
 <p>MsfsSite:配置msfs服务器的地址，用于发送语音的时候上传保存语音文本。</p>
@@ -653,16 +556,14 @@ group_member_db=1
 group_member_maxconncnt=48
 
 #AES 密钥
-aesKey=12345678901234567890123456789012
-</code></pre><h4 id="login-server"><a href="#login-server" class="headerlink" title="login_server"></a>login_server</h4><pre><code>ClientListenIP=0.0.0.0      # can use multiple ip, seperate by &apos;;&apos;
+aesKey=12345678901234567890123456789012</code></pre><h4 id="login-server"><a href="#login-server" class="headerlink" title="login_server"></a>login_server</h4><pre><code>ClientListenIP=0.0.0.0      # can use multiple ip, seperate by &apos;;&apos;
 ClientPort=8008
 HttpListenIP=0.0.0.0
 HttpPort=8080
 MsgServerListenIP=0.0.0.0   # can use multiple ip, seperate by &apos;;&apos;
 MsgServerPort=8100
 msfs=http://127.0.0.1:8700/
-discovery=http://127.0.0.1/api/discovery
-</code></pre><p>ClientListenIP:目前已经作废。</p>
+discovery=http://127.0.0.1/api/discovery</code></pre><p>ClientListenIP:目前已经作废。</p>
 <p>ClientPort:与上一个配套，同样作废。</p>
 <p>HttpListenIP:供客户端过来获取msg_server及其他参数的接口地址，走http协议。</p>
 <p>HttpPort:与上一个配套使用。</p>
@@ -679,14 +580,11 @@ HttpPort=8080
 MsgServerListenIP=0.0.0.0
 MsgServerPort=8100
 msfs=http://teamtalk.naturalwill.me:8700/
-discovery=http://teamtalk.naturalwill.me/api/discovery
-</code></pre><h4 id="route-server"><a href="#route-server" class="headerlink" title="route_server"></a>route_server</h4><pre><code>ListenIP=0.0.0.0            # Listening IP
-ListenMsgPort=8200          # Listening Port for MsgServer
-</code></pre><p>route_server配置比较简单，一个监听ip，一个监听port就OK了，供msg_server连接上来用。</p>
+discovery=http://teamtalk.naturalwill.me/api/discovery</code></pre><h4 id="route-server"><a href="#route-server" class="headerlink" title="route_server"></a>route_server</h4><pre><code>ListenIP=0.0.0.0            # Listening IP
+ListenMsgPort=8200          # Listening Port for MsgServer</code></pre><p>route_server配置比较简单，一个监听ip，一个监听port就OK了，供msg_server连接上来用。</p>
 <p>参考配置:</p>
 <pre><code>ListenIP=0.0.0.0
-ListenMsgPort=8200
-</code></pre><h4 id="http-msg-server"><a href="#http-msg-server" class="headerlink" title="http_msg_server"></a>http_msg_server</h4><pre><code>ListenIP=0.0.0.0
+ListenMsgPort=8200</code></pre><h4 id="http-msg-server"><a href="#http-msg-server" class="headerlink" title="http_msg_server"></a>http_msg_server</h4><pre><code>ListenIP=0.0.0.0
 ListenPort=8400
 ConcurrentDBConnCnt=4
 DBServerIP1=127.0.0.1
@@ -696,8 +594,7 @@ DBServerPort2=10600
 RouteServerIP1=localhost
 RouteServerPort1=8200
 #RouteServerIP2=localhost
-#RouteServerPort2=8201
-</code></pre><p>ListenIP: 监听IP，供其他人来调用http_msg_server接口，比如，php在创建群组的时候，就会来调用http_msg_server的接口。</p>
+#RouteServerPort2=8201</code></pre><p>ListenIP: 监听IP，供其他人来调用http_msg_server接口，比如，php在创建群组的时候，就会来调用http_msg_server的接口。</p>
 <p>ListenPort: 监听端口，与上一个配套使用。</p>
 <p>ConcurrentDBConnCnt: DB数目，目前必须配置为2的整数倍，是历史遗留问题，后期会修复。</p>
 <p>DBServerIP(x):db_proxy_server监听的IP，http_msg_server会主动去连接。</p>
@@ -715,8 +612,7 @@ DBServerPort2=10600
 RouteServerIP1=127.0.0.1
 RouteServerPort1=8200
 #RouteServerIP2=localhost
-#RouteServerPort2=8201
-</code></pre><h4 id="msg-server"><a href="#msg-server" class="headerlink" title="msg_server"></a>msg_server</h4><pre><code>ListenIP=0.0.0.0
+#RouteServerPort2=8201</code></pre><h4 id="msg-server"><a href="#msg-server" class="headerlink" title="msg_server"></a>msg_server</h4><pre><code>ListenIP=0.0.0.0
 ListenPort=8000
 
 ConcurrentDBConnCnt=2
@@ -748,8 +644,7 @@ IpAddr2=127.0.0.1   #网通IP
 MaxConnCnt=100000
 
 #AES 密钥
-aesKey=12345678901234567890123456789012
-</code></pre><p>ListenIP:监听客户端连接上来的IP。</p>
+aesKey=12345678901234567890123456789012</code></pre><p>ListenIP:监听客户端连接上来的IP。</p>
 <p>ListenPort:与上一个配套使用，监听客户端连接的port。</p>
 <p>ConcurrentDBConnCnt:db_proxy_server个数，同http_msg_server 一样。</p>
 <p>DBServerIP(x):db_proxy_server监听的ip，msg_server主动去连接。</p>
@@ -798,16 +693,14 @@ IpAddr2=teamtalk.naturalwill.me #网通IP
 MaxConnCnt=100000
 
 # AES key
-aesKey=12345678901234567890123456789012
-</code></pre><h4 id="file-server"><a href="#file-server" class="headerlink" title="file_server"></a>file_server</h4><pre><code>#Address=0.0.0.0         # address for client
+aesKey=12345678901234567890123456789012</code></pre><h4 id="file-server"><a href="#file-server" class="headerlink" title="file_server"></a>file_server</h4><pre><code>#Address=0.0.0.0         # address for client
 ClientListenIP=0.0.0.0
 ClientListenPort=8600   # Listening Port for client
 
 MsgServerListenIP=0.0.0.0
 MsgServerListenPort=8601
 
-TaskTimeout=60         # Task Timeout (seconds)
-</code></pre><h4 id="push-server"><a href="#push-server" class="headerlink" title="push_server"></a>push_server</h4><pre><code>ListenIP=0.0.0.0
+TaskTimeout=60         # Task Timeout (seconds)</code></pre><h4 id="push-server"><a href="#push-server" class="headerlink" title="push_server"></a>push_server</h4><pre><code>ListenIP=0.0.0.0
 ListenPort=8500
 
 CertPath=apns-dev-cert.pem
@@ -816,46 +709,42 @@ KeyPassword=tt@mogujie
 
 #SandBox
 #1: sandbox 0: production
-SandBox=1
-</code></pre><h4 id="msfs"><a href="#msfs" class="headerlink" title="msfs"></a>msfs</h4><pre><code>BaseDir=/var/www/teamtalk/msfs #文件存放地址
+SandBox=1</code></pre><h4 id="msfs"><a href="#msfs" class="headerlink" title="msfs"></a>msfs</h4><pre><code>BaseDir=/var/www/teamtalk/msfs #文件存放地址
 FileCnt=10
 FilesPerDir=30000
 GetThreadCount=32
 ListenIP=0.0.0.0
 ListenPort=8700
-PostThreadCount=1
-</code></pre><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>服务端的启动没有严格的先后流程，因为各端在启动后会去主动连接其所依赖的服务端，如果相应的服务端还未启动，会始终尝试连接。不过在此，如果是线上环境,还是建议按照如下的启动顺序去启动(也不是唯一的顺序)：</p>
+PostThreadCount=1</code></pre><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>服务端的启动没有严格的先后流程，因为各端在启动后会去主动连接其所依赖的服务端，如果相应的服务端还未启动，会始终尝试连接。不过在此，如果是线上环境,还是建议按照如下的启动顺序去启动(也不是唯一的顺序)：</p>
 <p>1、启动 db_proxy。</p>
 <p>2、启动 route_server, file_server, msfs</p>
 <p>3、启动 login_server</p>
 <p>4、启动 msg_server</p>
 <p>命令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> db_proxy_server &amp;&amp; daeml db_proxy_server &amp;&amp; <span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> route_server &amp;&amp; daeml route_server &amp;&amp; <span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cd</span> file_server &amp;&amp; daeml file_server &amp;&amp; <span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cd</span> msfs &amp;&amp; daeml msfs &amp;&amp; <span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> login_server &amp;&amp; daeml login_server &amp;&amp; <span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> push_server &amp;&amp; daeml push_server &amp;&amp; <span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> msg_server &amp;&amp; daeml msg_server &amp;&amp; <span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> http_msg_server &amp;&amp; daeml http_msg_server &amp;&amp; <span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>蓝狐 的 <a href="https://web.archive.org/web/20161014070359/http://bluefoxah.org/teamtalk/new_tt_deploy.html" rel="external nofollow noopener noreferrer" target="_blank">新版TeamTalk部署教程</a></p>
-<p>luoxn28 的 <a href="http://www.cnblogs.com/luoxn28/p/5348649.html" rel="external nofollow noopener noreferrer" target="_blank">TeamTalk源码分析之服务端描述</a></p>
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>蓝狐 的 <a href="https://web.archive.org/web/20161014070359/http://bluefoxah.org/teamtalk/new_tt_deploy.html" target="_blank" rel="external nofollow noopener noreferrer">新版TeamTalk部署教程</a></p>
+<p>luoxn28 的 <a href="http://www.cnblogs.com/luoxn28/p/5348649.html" target="_blank" rel="external nofollow noopener noreferrer">TeamTalk源码分析之服务端描述</a></p>
 
     </div>
 
     
     
     
-        
-      
-        <div id="reward-container">
+        <div class="reward-container">
   <div></div>
-  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     打赏
   </button>
   <div id="qr" style="display: none;">
-        
       
-      <div style="display: inline-block">
+      <div style="display: inline-block;">
         <img src="/images/wechatpay.png" alt="起源|NaturalWill 微信支付">
         <p>微信支付</p>
       </div>
-        
       
-      <div style="display: inline-block">
+      <div style="display: inline-block;">
         <img src="/images/alipay.png" alt="起源|NaturalWill 支付宝">
         <p>支付宝</p>
       </div>
@@ -863,75 +752,73 @@ PostThreadCount=1
   </div>
 </div>
 
-      
 
       <footer class="post-footer">
-          
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/TeamTalk/" rel="tag"># TeamTalk</a>
-            
               <a href="/tags/C-C/" rel="tag"># C/C++</a>
-            
           </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2017/03/07/create-mdi-window-in-WPF/" rel="next" title="【另辟蹊径】如何在 WPF 实现 MDI 窗口">
-                  <i class="fa fa-chevron-left"></i> 【另辟蹊径】如何在 WPF 实现 MDI 窗口
-                </a>
-              
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2017/05/03/Teamtalk-awesome/" rel="prev" title="Teamtalk">
-                  Teamtalk <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/03/07/create-mdi-window-in-WPF/" rel="prev" title="【另辟蹊径】如何在 WPF 实现 MDI 窗口">
+      <i class="fa fa-chevron-left"></i> 【另辟蹊径】如何在 WPF 实现 MDI 窗口
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/05/03/Teamtalk-awesome/" rel="next" title="Teamtalk">
+      Teamtalk <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
   </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -945,86 +832,48 @@ PostThreadCount=1
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译前准备"><span class="nav-number">1.</span> <span class="nav-text">编译前准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-MySQL-、-Nginx-、-Redis"><span class="nav-number">1.2.</span> <span class="nav-text">安装 MySQL 、 Nginx 、 Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Termcap"><span class="nav-number">1.3.</span> <span class="nav-text">安装 Termcap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-PHP"><span class="nav-number">1.4.</span> <span class="nav-text">安装 PHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-PHP-zend-loader-（可选）"><span class="nav-number">1.5.</span> <span class="nav-text">安装 PHP zend-loader （可选）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-Teamtalk"><span class="nav-number">2.</span> <span class="nav-text">编译 Teamtalk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖："><span class="nav-number">2.1.</span> <span class="nav-text">安装依赖：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译-google-protobuf"><span class="nav-number">2.2.</span> <span class="nav-text">编译 google protobuf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-log4cxx"><span class="nav-number">2.3.</span> <span class="nav-text">安装 log4cxx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">2.4.</span> <span class="nav-text">编译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL"><span class="nav-number">4.1.</span> <span class="nav-text">MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP-程序配置"><span class="nav-number">4.2.</span> <span class="nav-text">PHP 程序配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx"><span class="nav-number">4.3.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TeamTalk-配置"><span class="nav-number">4.4.</span> <span class="nav-text">TeamTalk 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#db-proxy-server"><span class="nav-number">4.4.1.</span> <span class="nav-text">db_proxy_server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#login-server"><span class="nav-number">4.4.2.</span> <span class="nav-text">login_server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#route-server"><span class="nav-number">4.4.3.</span> <span class="nav-text">route_server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-msg-server"><span class="nav-number">4.4.4.</span> <span class="nav-text">http_msg_server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#msg-server"><span class="nav-number">4.4.5.</span> <span class="nav-text">msg_server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#file-server"><span class="nav-number">4.4.6.</span> <span class="nav-text">file_server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#push-server"><span class="nav-number">4.4.7.</span> <span class="nav-text">push_server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#msfs"><span class="nav-number">4.4.8.</span> <span class="nav-text">msfs</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行"><span class="nav-number">5.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="起源|NaturalWill">
+    <img class="site-author-image" itemprop="image" alt="起源|NaturalWill" src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">起源|NaturalWill</p>
   <div class="site-description" itemprop="description">随便写写</div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        <span class="site-state-item-count">38</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
+</div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="https://github.com/NaturalWill" title="GitHub &rarr; https://github.com/NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <a href="https://github.com/NaturalWill" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="mailto:owner@naturalwill.me" title="E-Mail &rarr; mailto:owner@naturalwill.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <a href="mailto:owner@naturalwill.me" title="E-Mail → mailto:owner@naturalwill.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="https://twitter.com/NaturalWill" title="Twitter &rarr; https://twitter.com/NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+        <a href="https://twitter.com/NaturalWill" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;NaturalWill" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
       </span>
-    
   </div>
 
 
@@ -1035,17 +884,14 @@ PostThreadCount=1
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://blog.naturalwill.me" title="https://blog.naturalwill.me" rel="noopener" target="_blank">Home</a>
+          <a href="https://blog.naturalwill.me/" title="https:&#x2F;&#x2F;blog.naturalwill.me" rel="noopener" target="_blank">Home</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://naturalwill.github.io" title="https://naturalwill.github.io">Github Mirror</a>
+          <a href="https://naturalwill.github.io/" title="https:&#x2F;&#x2F;naturalwill.github.io">Github Mirror</a>
         </li>
-      
         <li class="links-of-blogroll-item">
-          <a href="https://tools.naturalwill.me" title="https://tools.naturalwill.me" rel="external nofollow noopener noreferrer" target="_blank">Tools</a>
+          <a href="https://tools.naturalwill.me/" title="https:&#x2F;&#x2F;tools.naturalwill.me" rel="external nofollow noopener noreferrer" target="_blank">Tools</a>
         </li>
-      
     </ul>
   </div>
 
@@ -1054,7 +900,6 @@ PostThreadCount=1
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
-      
 
     </div>
   </aside>
@@ -1064,17 +909,24 @@ PostThreadCount=1
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">起源|NaturalWill</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动
+  </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a></div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a>
+  </div>
 
         
 
@@ -1085,30 +937,31 @@ PostThreadCount=1
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
 
   
-
-
-    
   
   <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
 
 
 
@@ -1126,26 +979,20 @@ PostThreadCount=1
 
 
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.0"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
