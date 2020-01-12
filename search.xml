@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ArchLinux 出现错误 Invalid or Corrupted package (PGP signature) 的解决方法</title>
+    <title>ArchLinux 出现错误 invalid or corrupted package (PGP signature) 的解决方法</title>
     <url>/2020/01/11/ArchLinux-error-invalid-or-corrupte-package/</url>
     <content><![CDATA[<p>升级系统时，有时会出现这个错误信息:</p>
 <pre><code>error: vim: signature from &quot;Levente Polyak (anthraxx) &lt;levente@leventepolyak.net&gt;&quot; is unknown trust
