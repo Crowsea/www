@@ -1102,8 +1102,8 @@ location ~ \.php$ {
         <category>Service</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>PHP</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1906,8 +1906,8 @@ INFO  10 files generated in 2.34 s</code></pre><h2 id="解决方案"><a href="#�
         <category>WSL</category>
       </categories>
       <tags>
-        <tag>WSL</tag>
         <tag>Hexo</tag>
+        <tag>WSL</tag>
         <tag>issue</tag>
       </tags>
   </entry>
@@ -1957,8 +1957,8 @@ INFO  10 files generated in 2.34 s</code></pre><h2 id="解决方案"><a href="#�
         <category>Service</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>PHP</tag>
+        <tag>Linux</tag>
         <tag>email</tag>
       </tags>
   </entry>
@@ -2293,8 +2293,8 @@ server {
         <category>Service</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>PHP</tag>
+        <tag>Linux</tag>
         <tag>HTTPS</tag>
         <tag>Nginx</tag>
       </tags>
