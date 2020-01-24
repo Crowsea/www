@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://naturalwill.github.io/star/index.html</loc>
+    
+    <lastmod>2020-01-24T03:27:12.324Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://naturalwill.github.io/links/index.html</loc>
+    
+    <lastmod>2020-01-22T14:05:41.492Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://naturalwill.github.io/2020/01/11/ArchLinux-error-invalid-or-corrupte-package/</loc>
     
     <lastmod>2020-01-12T09:49:38.439Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://naturalwill.github.io/2018/02/10/proxy-and-mirror-notes/</loc>
     
     <lastmod>2020-01-12T07:52:43.687Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://naturalwill.github.io/links/index.html</loc>
-    
-    <lastmod>2020-01-11T14:12:00.039Z</lastmod>
     
   </url>
   
@@ -117,13 +124,6 @@
     <loc>https://naturalwill.github.io/tags/index.html</loc>
     
     <lastmod>2020-01-11T08:47:31.430Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://naturalwill.github.io/star/index.html</loc>
-    
-    <lastmod>2020-01-11T08:47:31.425Z</lastmod>
     
   </url>
   
