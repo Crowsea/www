@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://naturalwill.github.io/2018/03/23/thread-safe-ring-buffer-implementation-in-cpp11/</loc>
+    
+    <lastmod>2020-01-31T12:57:09.759Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://naturalwill.github.io/links/index.html</loc>
     
     <lastmod>2020-01-24T06:45:12.771Z</lastmod>
@@ -201,13 +208,6 @@
     <loc>https://naturalwill.github.io/2018/04/03/visual-studio-skill/</loc>
     
     <lastmod>2020-01-11T08:47:31.234Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://naturalwill.github.io/2018/03/23/thread-safe-ring-buffer-implementation-in-cpp11/</loc>
-    
-    <lastmod>2020-01-11T08:47:31.229Z</lastmod>
     
   </url>
   
