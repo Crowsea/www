@@ -1,5 +1,7 @@
 /* global NexT, CONFIG */
 
+  
+  window.location.href =  window.location.href.replace('www.naturalwill.me','blog.naturalwill.me');
 HTMLElement.prototype.wrap = function(wrapper) {
   this.parentNode.insertBefore(wrapper, this);
   this.parentNode.removeChild(this);
