@@ -1157,8 +1157,8 @@ audio=麦克风 (High Definition Audio 设备): Immediate exit requested</code><
         <category>Notes</category>
       </categories>
       <tags>
-        <tag>Notes</tag>
         <tag>ffmpeg</tag>
+        <tag>Notes</tag>
       </tags>
   </entry>
   <entry>
@@ -1693,8 +1693,8 @@ PostThreadCount=1</code></pre><h2 id="运行"><a href="#运行" class="headerlin
         <category>.Net</category>
       </categories>
       <tags>
-        <tag>WPF</tag>
         <tag>.Net</tag>
+        <tag>WPF</tag>
       </tags>
   </entry>
   <entry>
@@ -1744,8 +1744,8 @@ if (LibCrPlayerHelper.SdlSetWin(hwnd, (int)win.Width, (int)win.Height) &lt; 0)
         <category>.Net</category>
       </categories>
       <tags>
-        <tag>WPF</tag>
         <tag>.Net</tag>
+        <tag>WPF</tag>
         <tag>流媒体</tag>
       </tags>
   </entry>
@@ -1774,8 +1774,8 @@ if (LibCrPlayerHelper.SdlSetWin(hwnd, (int)win.Width, (int)win.Height) &lt; 0)
         <category>.Net</category>
       </categories>
       <tags>
-        <tag>WPF</tag>
         <tag>.Net</tag>
+        <tag>WPF</tag>
         <tag>流媒体</tag>
       </tags>
   </entry>
@@ -1845,8 +1845,8 @@ setInterval(draw, 33);</code></pre><p></script></p>
         <category>.Net</category>
       </categories>
       <tags>
-        <tag>WPF</tag>
         <tag>.Net</tag>
+        <tag>WPF</tag>
       </tags>
   </entry>
   <entry>
@@ -2407,8 +2407,8 @@ exec /opt/google/chrome/google-chrome $CHROME_USER_FLAGS &quot;$@&quot;%</code><
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>Wine</tag>
         <tag>Notes</tag>
+        <tag>Wine</tag>
       </tags>
   </entry>
   <entry>
